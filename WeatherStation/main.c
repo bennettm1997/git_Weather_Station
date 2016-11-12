@@ -3,11 +3,7 @@
 
 void main(void)
 {
-
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
-
+    //test
 }
 
-void configure_Pins(){
-//test
-}

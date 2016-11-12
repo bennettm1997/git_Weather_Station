@@ -3,7 +3,7 @@
  * A zero within the packet of data will represent that we did not sample and send the data.
  * This data will be put onto a circular buffer that takes in object/struct
  */
-#include "circularBuffer.h"
+#include "packetizeData.h"
 #include <stdlib.h>
 #include <stdio.h>
 

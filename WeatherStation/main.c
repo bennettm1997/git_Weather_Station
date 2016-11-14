@@ -3,6 +3,7 @@
 
 void main(void)
 {
+	hi
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
 
 }

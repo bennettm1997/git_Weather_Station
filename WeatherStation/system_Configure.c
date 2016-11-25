@@ -8,6 +8,8 @@ void configure_Pins(){
 
 }
 extern void configure_ADC(void){
+/*
+
 	while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);// IF the reference generator is busy, WAIT
 	REF_A->CTL0 = REF_A_CTL0_VSEL_0 | REF_A_CTL0_ON; // Enable internal 1.2V ref
 	REF_A->CTL0 &= ~REF_A_CTL0_TCOFF;            // Turn on Temperature Sensor
@@ -27,6 +29,7 @@ extern void configure_ADC(void){
 	ADC14->CTL0 |= ADC14_CTL0_ENC | ADC14_CTL0_SC;
 	//Enable Conversions
 	NVIC_EnableIRQ(ADC14_IRQn);      // Enable ADC int in NVIC module
+	 */
 }
 void configure_clocks(void)
 {
@@ -57,6 +60,17 @@ void configure_serial_port(){
 	UCA0CTLW0 &= ~UCSWRST;				// Initialize eUSCI
 	UCA0IE |= BIT0; //Enable USCI_A0 TX interrupts
 	NVIC->ISER[0] = 1 << ((EUSCIA0_IRQn) & 31);  //Enable eUSCIA0 interrupt in NVIC
+}
+void uart_putchar(uint8_t tx_data){
+	while(!(UCA0IFG & UCTXIFG));//block until transmitter is ready
+	UCA0TXBUF = tx_data;//load data onto buffer
+}
+void uart_putchar_n(uint8_t * data, uint32_t length){
+	int i;
+	for(i = 0; i<length; i++){
+		uart_putchar(*data);
+        data++;
+	}
 }
 
 void configure_All(){

@@ -6,7 +6,15 @@
 #include "packetizeData.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+#define ERROR -1
+int sendAPacket(Weather_Packet * w_Packet){
+	if(1){
+		//uart_
+	}
+	else{
+		return ERROR;
+	}
+}
 
 
 

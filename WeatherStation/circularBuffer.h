@@ -1,16 +1,28 @@
-/*
- * circularBuffer.h
- *
- *  Created on: Nov 12, 2016
- *      Author: Bennett
- */
+#ifndef _circularBuffer_h
+#define _circularBuffer_h
+#include <stdint.h>
+typedef struct CircBuf_t{
+	volatile uint16_t * head; // Pointer to first item
+	volatile uint16_t * tail; // Pointer to last item
+	volatile uint32_t num_items; // Number of items in buffer
+	volatile uint32_t length; // Max number of items the buffer can hold
+	uint16_t * buffer; // Pointer to beginning of buffer in heap
+	} CircBuf;
 
-#ifndef CIRCULARBUFFER_H_
-#define CIRCULARBUFFER_H_
+void InitializeBuffer(CircBuf * buf, uint32_t length);
 
-class circularBuffer {
-public:
-	circularBuffer();
-};
+int ClearBuffer(CircBuf * buf);
 
-#endif /* CIRCULARBUFFER_H_ */
+void DeleteBuffer(CircBuf * buf);
+
+int BufferFull(CircBuf * buf);
+
+void PrintBuf(CircBuf *buf);
+
+int BufferEmpty(CircBuf * buf);
+
+int AddItemToBuffer(CircBuf * buf, uint16_t item);
+
+int RemoveItemFromBuffer(CircBuf * buf);
+
+#endif

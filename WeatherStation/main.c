@@ -13,8 +13,9 @@ void main(void)
     Weather_Packet packet;
     fill_Packet(&packet);
     int i;
+    //tests sending data over bluetooth
     for(i = 0; i<10; i++){
-    	sendAPacket(&packet);
+    	sendAPacket(&packet);//sends the packet
     }
 }
 

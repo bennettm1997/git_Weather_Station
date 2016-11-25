@@ -8,12 +8,7 @@
 #include <stdio.h>
 
 
-struct Packet_Data{
-	uint16_t temperature;
-	uint16_t barometric_Pressure;
-	uint16_t altitude;
-	uint16_t daylight_Level;
-}Weather_Packet;
+
 
 
 

@@ -1,4 +1,7 @@
-
+#include "circularBuffer.h"
+#include "msp.h"
+#include <stdlib.h>
+#include <stdio.h>
 #define FULL -1
 /*
  * Parameters:
@@ -72,7 +75,7 @@ int BufferEmpty(CircBuf * buf)
  * This functio adds an item to the circular buffer.
  * We need to change this to take in our Packetize data struct
  */
-int AddItemToBuffer(CircBuf * buf, uint8_t item)
+int AddItemToBuffer(CircBuf * buf, uint16_t item)
 {
 	int8_t err = BufferFull(buf);
 	if(err == 0)
@@ -100,7 +103,7 @@ int RemoveItemFromBuffer(CircBuf * buf)
 		buf->tail = buf->tail + 1;
 		tail_1 = 0;
 		buf->num_items --;
-		return y;
+		return temp;
 	}
 	else
 	{

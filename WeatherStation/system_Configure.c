@@ -1,7 +1,7 @@
 #include "msp.h"
 #include "core_cm4.h"
+#include "system_Configure.h"
 
-#define ERROR -10
 
 void configure_Pins(){
 //Set pins to enable buttons
@@ -63,6 +63,6 @@ void configure_All(){
 	configure_Pins();
 	configure_ADC();
 	configure_clocks();
-	configure_serial_Port();
+	configure_serial_port();
 }
 

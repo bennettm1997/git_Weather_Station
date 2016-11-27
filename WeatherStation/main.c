@@ -2,7 +2,7 @@
 #include "msp.h"
 #include "system_Configure.h"
 #include "packetizeData.h"
-
+#include "send_Log.h"
 void main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
@@ -12,10 +12,12 @@ void main(void)
 
     Weather_Packet packet;
     fill_Packet(&packet);
+    sendLog("What is the sq rtts");
     int i;
     //tests sending data over bluetooth
     for(i = 0; i<10; i++){
     	sendAPacket(&packet);//sends the packet
     }
+
 }
 

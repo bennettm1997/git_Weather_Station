@@ -1,4 +1,4 @@
-/*In low power mode we will decrease the ADC sampling rate to a minimum.
+/*In low power mode we will decrease the ADC sampling rate to a minimum. - Change the capture compare register to a lower value, to decrease the sampling rate.
  * In High power mode we will sample at the fastest rate we can within reason.
  *
  */

@@ -64,7 +64,7 @@ int BufferEmpty(CircBuf * buf)
 {
 	if(buf->head == buf->tail)
 	{
-		return -1;
+		return FULL;
 	}
 	else
 	{
@@ -72,7 +72,7 @@ int BufferEmpty(CircBuf * buf)
 	}
 }
 /*
- * This functio adds an item to the circular buffer.
+ * This function adds an item to the circular buffer.
  * We need to change this to take in our Packetize data struct
  */
 int AddItemToBuffer(CircBuf * buf, uint16_t item)

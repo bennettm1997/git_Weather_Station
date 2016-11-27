@@ -2,11 +2,16 @@
 #include "core_cm4.h"
 #include "system_Configure.h"
 
-
+/*
+Configure_Pins sets all the pins to the correct orientation, whether it is input/ouput etc.
+/* 
 void configure_Pins(){
 //Set pins to enable buttons
 
 }
+/* 
+This is where we will configure the ADC to sample properly. -Might not be necessary
+*/
 extern void configure_ADC(void){
 /*
 
@@ -31,6 +36,9 @@ extern void configure_ADC(void){
 	NVIC_EnableIRQ(ADC14_IRQn);      // Enable ADC int in NVIC module
 	 */
 }
+/*
+Configures our Clocks and sets the DCO clock to 1.5Mhz
+*/
 void configure_clocks(void)
 {
 	CS->KEY = 0x695A; 					//Unlock cs module for register access
@@ -39,7 +47,13 @@ void configure_clocks(void)
 	CS->CTL1 = CS_CTL1_SELA_2 | CS_CTL1_SELS_3 | CS_CTL1_SELM_3;
 	CS->KEY = 0;						//lock module
 }
+/*
+Configures our serial port for Bluetooth transmission
 
+Port 1.2 and 1.3 are acting as our TXD and RXD pins. This is the EUSCI SPI 
+P1.2: UCA0RXD
+P1.3: UCA0TXD
+*/
 void configure_serial_port(){
 	//configure UART pins, set 2 UART pin as a primary function
 	P1SEL0 |= BIT2;
@@ -55,12 +69,15 @@ void configure_serial_port(){
 	UCA0CTLW0 |= UCMODE_0;				//UART mode
 	UCA0CTLW0 & ~UCSPB;					//one stop bit
 	UCA0CTLW0 |= UCSSEL_2;				//SMCLK
-	UCA0BR0 = 156; 						//set baud rate
+	UCA0BR0 = 156; 						//set baud rate, to 1.5MHZ
 	UCA0BR1 = 0;
 	UCA0CTLW0 &= ~UCSWRST;				// Initialize eUSCI
 	UCA0IE |= BIT0; //Enable USCI_A0 TX interrupts
 	NVIC->ISER[0] = 1 << ((EUSCIA0_IRQn) & 31);  //Enable eUSCIA0 interrupt in NVIC
 }
+/*
+uart_putchar takes in an 8 bit integer and if the transmitter is ready, data is loaded onto the Tx buffer, to send across UART.
+*/
 void uart_putchar(uint8_t tx_data){
 	while(!(UCA0IFG & UCTXIFG));//block until transmitter is ready
 	UCA0TXBUF = tx_data;//load data onto buffer
@@ -72,11 +89,14 @@ void uart_putchar_n(uint8_t * data, uint32_t length){
         data++;
 	}
 }
-
+/*
+This function calls all of our other configure functions to minimize function calling within the main
+*/
 void configure_All(){
 	configure_Pins();
 	configure_ADC();
 	configure_clocks();
 	configure_serial_port();
 }
+
 

@@ -1,1 +1,1 @@
-"./circularBuffer.obj" "./get_Data.obj" "./main.obj" "./packetizeData.obj" "./powerMode.obj" "./spi_Module.obj" "./startup_msp432p401r_ccs.obj" "./system_Configure.obj" "./system_msp432p401r.obj" "../msp432p401r.cmd" -llibc.a 
+"./circularBuffer.obj" "./get_Data.obj" "./main.obj" "./packetizeData.obj" "./powerMode.obj" "./send_Log.obj" "./spi_Module.obj" "./startup_msp432p401r_ccs.obj" "./system_Configure.obj" "./system_msp432p401r.obj" "../msp432p401r.cmd" -llibc.a 

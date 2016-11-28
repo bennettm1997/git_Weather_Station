@@ -65,6 +65,9 @@ int configure_SPI_Clock(){
 	NVIC_EnableIRQ(TA0_0_IRQn);//This enables the NVIC for A0 Timer
 }
 void SPI_MODULE_IRQ_HANDLER(void){
+	//test
+}
+void test(){
 	
 }
 

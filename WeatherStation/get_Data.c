@@ -17,6 +17,7 @@ active high and some are active low.
 	Returns the temperature in the form of an integer
 */
 int get_Temperature(){
+	sendLog("Sampling Temperature Data");
 	//Wake up Slave Select for this IC; output on a pin connected to the slave select.
 
 	return 10;//change to temp and add return -1 for error
@@ -26,7 +27,7 @@ Wake the Barometer IC up and get a data sample. Perform the math to convert the 
 representation of the barometric pressure.
 */ 
 int get_Barometric_Pressure(void){
-
+	sendLog("Sampling Barometric Pressure Data");
 
 }
 //Tell the MSP when to sample temp, pressure, etc. This will just call the get functions at the

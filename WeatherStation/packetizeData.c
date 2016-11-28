@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "get_Data.h"
 #include <stdlib.h>
+#include "sendLog.h"
 #define ERROR -1
 #define GOOD 0;
 
@@ -16,7 +17,7 @@
  * Paramaters: w_Packet: Instance of a weather packet
  */
 int fill_Packet(Weather_Packet *w_Packet){
-
+	sendLog("Filling Weather Packet");
 	//change to call itoa on these
 	w_Packet-> temperature = get_Temperature();
 	w_Packet-> barometric_Pressure = 1;
@@ -39,6 +40,7 @@ int isFull(Weather_Packet *w_Packet){
 
 //possibly add and identifier letting the computer know what kind of data it is. If the serial data has a * infront, then it is this kind of data.
 int sendAPacket(Weather_Packet * w_Packet){
+	sendLog("Sending Weather Packet");
 	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> altitude) != 0 && (w_Packet-> daylight_Level) != 0){//check if all values are not 0 inside w_Packet{
 		uart_putchar('*');
 		uart_putchar(w_Packet-> temperature);

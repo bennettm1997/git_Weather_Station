@@ -10,6 +10,11 @@ void main(void)
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
     __enable_interrupt(); //enable global interrupts
     configure_All(); //change to configure all later
+
+    /*
+     *
+     * We will need a button interrupt handler for this. Continusously checking for button presses will use a lot of resources
+     *
 #DEFINE BUTTONPUSHLOW 1;
 #DEFINE BUTTONPUSHHIGH 1;
 #DEFINE BUTTONPUSHOFF  1;
@@ -25,6 +30,8 @@ void main(void)
     while(BUTTON == BUTTONPUSHOFF){
     	return 0;
     }
+    */
+
 
 }
 

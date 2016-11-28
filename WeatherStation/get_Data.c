@@ -18,6 +18,7 @@ active high and some are active low.
 */
 int get_Temperature(){
 	//Wake up Slave Select for this IC; output on a pin connected to the slave select.
+
 	return 10;//change to temp and add return -1 for error
 }
 /*

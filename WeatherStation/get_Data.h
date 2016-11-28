@@ -8,6 +8,7 @@
 #ifndef GET_DATA_H_
 #define GET_DATA_H_
 #include "msp.h"
+#include "spi_Module.h"
 
 int get_Temperature();
 int get_Barometric_Pressure(void);

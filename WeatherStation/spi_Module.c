@@ -46,10 +46,6 @@ int MISO(){
 	
 	//This is the input data
 	//You will have to figure out how the data is sent across the IC's and what they mean. LSB first or MSB..
-	
-	
-	
-	
 }
 /*
 Master Out Slave In Line. This may not be necessary for our peripherals. 

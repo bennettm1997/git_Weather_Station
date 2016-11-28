@@ -5,6 +5,7 @@
 #include "send_Log.h"
 void main(void)
 {
+	hi
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
     __enable_interrupt(); //enable global interrupts
     configure_All(); //change to configure all later

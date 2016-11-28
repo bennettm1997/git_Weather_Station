@@ -4,4 +4,5 @@
 
 void low_Power();
 void high_Power();
+int Check_Power();
 #endif

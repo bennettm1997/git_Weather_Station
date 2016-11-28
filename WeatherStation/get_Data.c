@@ -1,7 +1,8 @@
 #include "get_Data.h"
 
 /*
-CHECK THE DATA SHEETS TO MAKE SURE WE ARE SENDING THE CORRECT SIGNALS, Some of the IC's pins are active high and some are active low. 
+CHECK THE DATA SHEETS TO MAKE SURE WE ARE SENDING THE CORRECT SIGNALS, Some of the IC's pins are
+active high and some are active low.
 */
 
 
@@ -20,14 +21,17 @@ int get_Temperature(){
 	return 10;//change to temp and add return -1 for error
 }
 /*
-Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer representation of the barometric pressure.
+Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
+representation of the barometric pressure.
 */ 
 int get_Barometric_Pressure(void){
 
 
 }
-//Tell the MSP when to sample temp, pressure, etc. This will just call the get functions at the specific time intervals.
+//Tell the MSP when to sample temp, pressure, etc. This will just call the get functions at the
+//specific time intervals.
 int get_All_Data(void){
-//creates a new timer. Use as many capture compare registers as needed. We do not need seperate instances of timers, just different Capture compare values.
+//creates a new timer. Use as many capture compare registers as needed. We do not need seperate instances
+	//of timers, just different Capture compare values.
 
 }

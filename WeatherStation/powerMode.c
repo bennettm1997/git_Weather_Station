@@ -3,8 +3,24 @@
  *
  */
 void low_Power(){
-//enable sleep mode after certain amount of time
-}
-void high_Power(){
+//set clock to have a frequency of 60 secs. and pull data at this time
+
 
 }
+void high_Power(){
+	//set clock to have a frequency of 10 secs. and pull data at this time
+}
+
+int Check_Power(){
+	if(BUTTON == BUTTONPUSHLOW){
+		return BUTTONPUSHLOW;
+	}
+	if(BUTTON == BUTTONPUSHHIGH){
+		return BUTTONPUSHHIGH;
+	}
+	if(BUTTON == BUTTONPUSHOFF){
+		return BUTTONPUSHOFF;
+	}
+}
+
+

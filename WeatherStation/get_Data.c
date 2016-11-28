@@ -31,8 +31,14 @@ int get_Barometric_Pressure(void){
 }
 //Tell the MSP when to sample temp, pressure, etc. This will just call the get functions at the
 //specific time intervals.
-int get_All_Data(void){
+int get_All_Data_Fast(void){
 //creates a new timer. Use as many capture compare registers as needed. We do not need seperate instances
 	//of timers, just different Capture compare values.
 
 }
+
+//Tells the MSP when to sample data at specific time intervals. This will take data at slower intervals.
+int get_All_Data_Slow(void){
+
+}
+

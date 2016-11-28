@@ -67,8 +67,6 @@ int configure_SPI_Clock(){
 void SPI_MODULE_IRQ_HANDLER(void){
 	//test
 }
-void test(){
-	
-}
+
 
 

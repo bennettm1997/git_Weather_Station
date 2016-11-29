@@ -7,20 +7,20 @@
  * In High power mode we will sample at the fastest rate we can within reason.
  *
  */
-void low_Power(){
+void low_Power(void){
 //set clock to have a frequency of 60 secs. and pull data at this time
 
 
 
 	sendLog("Low Power Mode Enabled")
 }
-void high_Power(){
+void high_Power(void){
 	//set clock to have a frequency of 10 secs. and pull data at this time
 
 	sendLog("High Power Mode Enabled")
 }
 //We will need a button interrupt handler for this function
-int Check_Power(){
+int Check_Power(void){
 	if(BUTTON == BUTTONPUSHLOW){
 		return BUTTONPUSHLOW;
 	}

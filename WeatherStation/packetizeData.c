@@ -16,14 +16,13 @@
  * Fills the defualt packet to send over bluetooth.
  * Paramaters: w_Packet: Instance of a weather packet
  */
-int fill_Packet(Weather_Packet *w_Packet){
+void fill_Packet(Weather_Packet *w_Packet){
 	sendLog("Filling Weather Packet");
 	//change to call itoa on these
 	w_Packet-> temperature = get_Temperature();
 	w_Packet-> barometric_Pressure = 1;
 	w_Packet-> altitude = 2;
 	w_Packet-> daylight_Level = 3;
-	return 0;
 }
 /*
  * Returns GOOD, if weather packet is full. GOOD = 0
@@ -47,11 +46,12 @@ int sendAPacket(Weather_Packet * w_Packet){
 		uart_putchar(w_Packet-> barometric_Pressure);
 		uart_putchar(w_Packet-> altitude);
 		uart_putchar(w_Packet-> daylight_Level);
+
+		return GOOD;
 	}
 	else{
 		return ERROR;
 	}
-	return 0;
 }
 
 

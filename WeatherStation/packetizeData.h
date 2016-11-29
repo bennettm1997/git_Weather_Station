@@ -17,6 +17,6 @@ typedef	struct Packet_Data_t{
 		uint16_t altitude;
 		uint16_t daylight_Level;
 	}Weather_Packet;
-int fill_Packet(Weather_Packet *w_Packet);
+void fill_Packet(Weather_Packet *w_Packet);
 int sendAPacket(Weather_Packet * w_Packet);
 #endif

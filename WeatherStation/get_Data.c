@@ -19,8 +19,6 @@ active high and some are active low.
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
 int get_Temperature(){
 	sendLog("Sampling Temperature Data");
-
-
 	return 10;//change to temp and add return -1 for error
 }
 /*
@@ -29,7 +27,7 @@ representation of the barometric pressure.
 */ 
 int get_Barometric_Pressure(void){
 	sendLog("Sampling Barometric Pressure Data");
-
+	return 0;
 }
 
 
@@ -38,12 +36,12 @@ int get_Barometric_Pressure(void){
  * Creates a new timer. Use as many capture compare registers as needed. We do not need seperate instances
  * of timers, just different Capture compare values.
 */
-int get_All_Data_Fast(void){
+void get_All_Data_Fast(void){
 
 }
 
 //Tells the MSP when to sample data at specific time intervals. This will take data at slower intervals.
-int get_All_Data_Slow(void){
+void get_All_Data_Slow(void){
 
 }
 

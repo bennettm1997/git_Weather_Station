@@ -7,9 +7,6 @@ active high and some are active low.
 
 
 
-
-
-
 /*
 	Tells the temperature sensor to send temperature data
 	Recieves the temperature data

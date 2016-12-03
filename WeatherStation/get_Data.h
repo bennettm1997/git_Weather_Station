@@ -10,8 +10,8 @@
 #include "msp.h"
 #include "spi_Module.h"
 
-int get_Temperature();
-int get_Barometric_Pressure(void);
+uint8_t get_Temperature();
+uint8_t get_Barometric_Pressure(void);
 void get_All_Data_Slow(void);
 void get_All_Data_Fast(void);
 

@@ -14,7 +14,7 @@ active high and some are active low.
 	Returns the temperature in the form of an integer
 */
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
-int get_Temperature(){
+uint8_t get_Temperature(){
 	sendLog("Sampling Temperature Data");
 	return 10;//change to temp and add return -1 for error
 }
@@ -22,7 +22,7 @@ int get_Temperature(){
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
 representation of the barometric pressure.
 */ 
-int get_Barometric_Pressure(void){
+uint8_t get_Barometric_Pressure(void){
 	sendLog("Sampling Barometric Pressure Data");
 	return 0;
 }

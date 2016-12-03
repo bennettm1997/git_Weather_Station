@@ -27,7 +27,7 @@ void InitializeBuffer(CircBuf * buf, uint32_t length)
  * Recursive
  * Clear buffer takes in our buffer and clears each individual element one at a time.
  */
-int ClearBuffer(CircBuf * buf)
+uint32_t ClearBuffer(CircBuf * buf)
 {
 	if(buf->head != buf->tail)//check for when the head of the buffer is not the same as the tail. IE not empty.
 	{
@@ -49,7 +49,7 @@ void DeleteBuffer(CircBuf * buf)
 /*
  * Check for when the buffer is full. If the buffer is full we will return a -1.
  */
-int BufferFull(CircBuf * buf)
+uint32_t BufferFull(CircBuf * buf)
 {
 	if(buf->num_items == buf->length)
 	{
@@ -60,7 +60,7 @@ int BufferFull(CircBuf * buf)
 		return 0;
 	}
 }
-int BufferEmpty(CircBuf * buf)
+uint32_t BufferEmpty(CircBuf * buf)
 {
 	if(buf->head == buf->tail)
 	{
@@ -75,7 +75,7 @@ int BufferEmpty(CircBuf * buf)
  * This function adds an item to the circular buffer.
  * We need to change this to take in our Packetize data struct
  */
-int AddItemToBuffer(CircBuf * buf, uint16_t item)
+uint32_t AddItemToBuffer(CircBuf * buf, uint16_t item)
 {
 	int8_t err = BufferFull(buf);
 	if(err == 0)
@@ -93,9 +93,9 @@ int AddItemToBuffer(CircBuf * buf, uint16_t item)
 /*
  * This function removes removes an item from the Buffer. FIFO
  */
-int RemoveItemFromBuffer(CircBuf * buf)
+uint32_t RemoveItemFromBuffer(CircBuf * buf)
 {
-	int8_t err = BufferEmpty(buf);
+	uint8_t err = BufferEmpty(buf);
 	if(err == 0)
 	{
 		uint8_t temp = *(buf->tail);

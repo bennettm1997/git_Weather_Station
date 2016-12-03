@@ -11,7 +11,7 @@
 #include "sendLog.h"
 #define ERROR -1
 #define GOOD 0;
-#define
+
 
 
 

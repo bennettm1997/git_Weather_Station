@@ -59,15 +59,14 @@ int isFull(Weather_Packet *w_Packet){
 //possibly add and identifier letting the computer know what kind of data it is. If the serial data has a * infront, then it is this kind of data.
 int sendAPacket(Weather_Packet * w_Packet){
 	sendLog("Sending Weather Packet");
-	char s[10] = "";
+
+	char *ITOA_PTR;
 	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> altitude) != 0 && (w_Packet-> daylight_Level) != 0){//check if all values are not 0 inside w_Packet{
 		uart_putchar('*');
-		uart_putchar(itoa((w_Packet-> temperature), s[]);
-
-		uart_putchar(w_Packet-> barometric_Pressure);
-		uart_putchar(w_Packet-> altitude);
-		uart_putchar(w_Packet-> daylight_Level);
-
+		uart_putchar(itoa((w_Packet-> temperature), ITOA_PTR);
+		uart_putchar(itoa((w_Packet-> barometric_Pressure),ITOA_PTR);
+		uart_putchar(itoa((w_Packet-> altitude),ITOA_PTR);
+		uart_putchar(itoa((w_Packet-> daylight_Level),ITOA_PTR);
 		return GOOD;
 	}
 	else{
@@ -104,11 +103,4 @@ int itoa(int value,char *ptr)
         }
         return count;
      }
-
-
-
-
-
-
-
 

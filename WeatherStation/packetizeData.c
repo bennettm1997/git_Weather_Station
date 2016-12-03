@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "sendLog.h"
 #define ERROR -1
-#define GOOD 0;
+#define GOOD 0
 
 
 typedef enum PACKET_ITEM{
@@ -26,7 +26,6 @@ typedef enum PACKET_ITEM{
  */
 void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, uint16_t value){
 	sendLog("Filling Weather Packet");
-	//change to call itoa on these
 
 	if(item == TEMPERATURE){
 		w_Packet-> temperature = value;

@@ -11,18 +11,18 @@ typedef struct CircBuf_t{
 
 void InitializeBuffer(CircBuf * buf, uint32_t length);
 
-int ClearBuffer(CircBuf * buf);
+uint32_t ClearBuffer(CircBuf * buf);
 
 void DeleteBuffer(CircBuf * buf);
 
-int BufferFull(CircBuf * buf);
+uint32_t BufferFull(CircBuf * buf);
 
 void PrintBuf(CircBuf *buf);
 
-int BufferEmpty(CircBuf * buf);
+uint32_t BufferEmpty(CircBuf * buf);
 
-int AddItemToBuffer(CircBuf * buf, uint16_t item);
+uint32_t AddItemToBuffer(CircBuf * buf, uint16_t item);
 
-int RemoveItemFromBuffer(CircBuf * buf);
+uint32_t RemoveItemFromBuffer(CircBuf * buf);
 
 #endif

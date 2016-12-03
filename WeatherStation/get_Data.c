@@ -1,5 +1,6 @@
 #include "get_Data.h"
-
+#include "spi_Module.h"
+#include "send_Log.h"
 /*
 CHECK THE DATA SHEETS TO MAKE SURE WE ARE SENDING THE CORRECT SIGNALS, Some of the IC's pins are
 active high and some are active low.

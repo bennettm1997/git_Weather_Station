@@ -11,18 +11,39 @@
 #include "sendLog.h"
 #define ERROR -1
 #define GOOD 0;
+#define
+
+
+
+typedef enum PACKET_ITEM{
+	TEMPERATURE = 5,
+	BAROMETRIC_PRESSURE = 6,
+	ALTITUDE = 7,
+	DAYLIGHT_LEVEL = 8,
+}ITEM;
 
 /*
  * Fills the defualt packet to send over bluetooth.
  * Paramaters: w_Packet: Instance of a weather packet
  */
-void fill_Packet(Weather_Packet *w_Packet){
+void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, uint16_t value){
 	sendLog("Filling Weather Packet");
 	//change to call itoa on these
-	w_Packet-> temperature = get_Temperature();
-	w_Packet-> barometric_Pressure = 1;
-	w_Packet-> altitude = 2;
-	w_Packet-> daylight_Level = 3;
+
+	if(item == TEMPERATURE){
+		w_Packet-> temperature = value;
+	}
+	else if (item == BAROMETRIC_PRESSURE){
+		w_Packet-> barometric_Pressure = value;
+
+	}
+	else if (item == ALTITUDE){
+		w_Packet-> altitude = value;
+
+	}
+	else if (item == DAYLIGHT_LEVEL){
+		w_Packet-> daylight_Level = value;
+	}
 }
 /*
  * Returns GOOD, if weather packet is full. GOOD = 0

@@ -35,9 +35,9 @@ void main(void)
 
 }
 
-void itoa(int n, char s[])
+void itoa(uint8_t n, char s[])
 {
-    int i, sign;
+    uint8_t i, sign;
 
     if ((sign = n) < 0)  /* record sign */
         n = -n;          /* make n positive */
@@ -53,7 +53,7 @@ void itoa(int n, char s[])
 
 void reverse(char s[])
 {
-    int i, j;
+    uint8_t i, j;
     char c;
 
     for (i = 0, j = strlen(s)-1; i<j; i++, j--) {

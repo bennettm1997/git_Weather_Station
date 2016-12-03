@@ -1,17 +1,19 @@
 #include "msp.h"
 #include "powerMode.h"
 #include "send_Log.h"
+#include "system_Configure.h"
 
 
 /*In low power mode we will decrease the ADC sampling rate to a minimum. - Change the capture compare register to a lower value, to decrease the sampling rate.
  * In High power mode we will sample at the fastest rate we can within reason.
  *
  */
-typedef enum POW_CHK_t{
-	BUTTONPUSHHIGH = 1,
-	BUTTONPUSHLOW = -1,
-	BUTTONPUSHOFF = 0 ;
-}POW_CHK;
+#DEFINE BUTTONPUSHON = 3
+#DEFINE	BUTTONPUSHHIGH = 2
+#DEFINE	BUTTONPUSHLOW = 1
+#DEFINE	BUTTONPUSHOFF = 0
+uint8_t BUTTON;
+
 
 void low_Power(void){
 //set clock to have a frequency of 60 secs. and pull data at this time
@@ -25,16 +27,50 @@ void high_Power(void){
 
 	sendLog("High Power Mode Enabled")
 }
+
+void Power_Off(void){
+
+}
+
+void Power_On(void){
+	low_Power();
+}
+
+
+void PORT1_IRQHandler(void){
+
+	if(P1IFG & BIT6){
+		BUTTON = BUTTONPUSHLOW;
+	}
+	else if(P1IFG & BIT7){
+		BUTTON = BUTTONPUSHHIGH;
+	}
+	else if(P1IFG & BIT5){
+		BUTTON = BUTTONPUSHOFF;
+	}
+	return BUTTON;
+}
+
+void PORT1_IRQHandler(void){
+	if(P4IFG & BIT1){
+		BUTTON = BUTTONPUSHON;
+	}
+	return BUTTON;
+}
+
 //We will need a button interrupt handler for this function
-POW_CHK Check_Power(void){
+void Check_Power(uint8_t BUTTON){
 	if(BUTTON == BUTTONPUSHLOW){
-		return BUTTONPUSHLOW;
+		low_Power();
 	}
-	if(BUTTON == BUTTONPUSHHIGH){
-		return BUTTONPUSHHIGH;
+	else if(BUTTON == BUTTONPUSHHIGH){
+		high_Power();
 	}
-	if(BUTTON == BUTTONPUSHOFF){
-		return BUTTONPUSHOFF;
+	else if(BUTTON == BUTTONPUSHOFF){
+		Power_Off();
+	}
+	else if(BUTTON == BUTTONPUSHON){
+		Power_On();
 	}
 }
 

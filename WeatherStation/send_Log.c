@@ -8,7 +8,7 @@
  */
 void sendLog(char strng[]){
 	uart_putchar('?'); //Logging identifier
-	int length = 10;
+	int length = 100;
 	int i = 0;
 	for(i = 0; i<length; i++){
 		uart_putchar(strng[i]);

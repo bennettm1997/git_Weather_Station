@@ -12,6 +12,7 @@
 
 int get_Temperature();
 int get_Barometric_Pressure(void);
-int get_All_Data(void);
+void get_All_Data_Slow(void);
+void get_All_Data_Fast(void);
 
 #endif /* GET_DATA_H_ */

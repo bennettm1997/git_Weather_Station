@@ -17,9 +17,7 @@ active high and some are active low.
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
 void get_Temperature(){
 	sendLog("Sampling Temperature Data");
-	slaveSelect1(0); //sets slave select pin to low
-	MISO();
-	slaveSelect1(1);
+	slaveSelect1(0); //sets slave selet
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
@@ -47,11 +45,19 @@ void get_Humidity(){
  * of timers, just different Capture compare values.
 */
 void get_All_Data_Fast(void){
+//clocks need to be implemented
+	get_Temperature();
+	get_Barometric_Pressure();
+	get_Humidity();
 
 }
 
 //Tells the MSP when to sample data at specific time intervals. This will take data at slower intervals.
 void get_All_Data_Slow(void){
+//clock needs to be implemented.
+	get_Temperature();
+	get_Barometric_Pressure();
+	get_Humidity();
 
 }
 

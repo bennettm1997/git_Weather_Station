@@ -9,3 +9,14 @@ The project doesnt have that much work to do.
 -We need something that handles all of the logging.
 	--Data vs logging. The IC data(temp, pressure etc) will get overrun, as in we will be logging a lot more than actually transmitting data. 
 		---This is why I added a "*" or "?", so we can write a quick script that will differentiate the types of serial data. 
+		
+		
+		
+		
+		SPI For Temp:
+		Communications start with bringing Chip select low. - Should be high until ready to transmit
+		--Data will begin to transmit. - First bit
+		----We have to wait until 14 bits of data are transferred
+			----Bring CS back high
+		
+	

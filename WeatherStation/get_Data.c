@@ -17,6 +17,14 @@ active high and some are active low.
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
 uint8_t get_Temperature(){
 	sendLog("Sampling Temperature Data");
+
+
+
+
+
+
+
+
 	return 10;//change to temp and add return -1 for error
 }
 /*
@@ -27,7 +35,6 @@ uint8_t get_Barometric_Pressure(void){
 	sendLog("Sampling Barometric Pressure Data");
 	return 0;
 }
-
 
 /*
  * Tell the MSP when to sample temp, pressure, etc. This will just call the get functions at the specific time intervals.

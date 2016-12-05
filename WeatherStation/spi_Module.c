@@ -61,14 +61,19 @@ int configure_SPI_Clock(void){
 //oscillate the SPI CLOCK PIN at the frequency that is decided upon (1kHZ)
 //create a new timer at 1khz
 //add the timer interrupt handler -- this will actually flip the pin
-	((*((volatile uint16_t *)(0x40000012)))) =46200;//Our multiplier. 37000 Iterations with the correct stepdown enables us to output a 5hz waveform
+	((*((volatile uint16_t *)(0x40000012)))) =3000;//Our multiplier. 37000 Iterations with the correct stepdown enables us to output a 5hz waveform
 	TA0CCTL0 = TAIE | CCIE;//Capture compare interrupt enable and Timer A Interrupt Enable
-	TA0CTL = (TIMER_A_CTL_MC_1 | TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_IE | TIMER_A_CTL_ID__8);//Enabling the correct macros to use a timer interrupt
+	TA0CTL = (TIMER_A_CTL_MC_1 | TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_IE | TIMER_A_CTL_ID__2);//Enabling the correct macros to use a timer interrupt
 	TA0R = 0;//This clears Timer A
 	NVIC_EnableIRQ(TA0_0_IRQn);//This enables the NVIC for A0 Timer
 }
+
 void SPI_MODULE_IRQ_HANDLER(void){
-	//test
+	//What we actually do when the interupt is enabled.
+		if(TA0CCTL0 & CCIFG){
+			P4OUT |= BIT3;
+		}
+	TA0CCTL0 &=~CCIFG;
 }
 
 

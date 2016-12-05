@@ -1,22 +1,22 @@
 Go through all of the files and whatnot that I created, I added a ton of stuff. Just familiarize yourself with it so it makes sense. 
-Logging- we need a module that will take all the the returned data from all the function calls and send it over bluetooth as a packet. This should be easy, I already setup the framework.
+
 Get Data- Temp, Barometric pressure, etc. All of these functions just need to tell the IC to start sampling data, and then recieve the data and convert it to real data(not adc values)
-The Get_All_Data function just calls the other get functions at the proper intervals
-We need an int to string function - google ITOA, this is what we will send over bluetooth. This will be much easier, so we do not just have a bunch of confusing raw data being sent over bluetooth.
-The project doesnt have that much work to do. 
+
+ 
 -We should possibly add some cool features, possibly create some interface for recieving the data to do math on.
 	--Python has a good way to recieve Serial Data(UART).
--We need something that handles all of the logging.
-	--Data vs logging. The IC data(temp, pressure etc) will get overrun, as in we will be logging a lot more than actually transmitting data. 
-		---This is why I added a "*" or "?", so we can write a quick script that will differentiate the types of serial data. 
-		
-		
-		
-		
-		SPI For Temp:
+	
+
+SPI For Temp:
 		Communications start with bringing Chip select low. - Should be high until ready to transmit
 		--Data will begin to transmit. - First bit
 		----We have to wait until 14 bits of data are transferred
 			----Bring CS back high
 		
+Receiving Data
+	--ADC
+	---Write to buffer
 	
+	
+	http://sensing.honeywell.com/spi-comms-with-digital-humidity-temp-sensors-tn-009071-1-en-final-07jun12.pdf
+	http://sensing.honeywell.com/spi-comms-with-digital-humidity-temp-sensors-tn-009071-1-en-final-07jun12.pdf

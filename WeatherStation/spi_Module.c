@@ -57,7 +57,7 @@ This line communicates the data from the master(msp432) to the slave devices (pe
 void MOSI(void){
 
 }
-int configure_SPI_Clock(void){
+void configure_SPI_Clock(void){
 //oscillate the SPI CLOCK PIN at the frequency that is decided upon (1kHZ)
 //create a new timer at 1khz
 //add the timer interrupt handler -- this will actually flip the pin

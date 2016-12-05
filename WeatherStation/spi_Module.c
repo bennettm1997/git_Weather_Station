@@ -76,5 +76,28 @@ void SPI_MODULE_IRQ_HANDLER(void){
 	TA0CCTL0 &=~CCIFG;
 }
 
+void configure_SPI_MODULE(void){
+	UCA1CTLW0 |= UCSWRST;// Put eUSCI in reset
+
+	UCA1CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCA1CTLW0 |=UCMSB;					//MSB first
+
+	UCA1CTLW0 &	~UC7BIT;				// 8 bit data
+	UCA1CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
+
+	UCA1CTLW0 |= UCMST;
+
+	UCA1CTLW0 & ~UCSPB;					//one stop bit
+	UCA1CTLW0 |= UCSSEL_2;				//SMCLK
+	UCA1BR0 = 26; 						//set baud rate
+	UCA1BR1 = 0;
+
+
+
+
+
+}
+
+
 
 

@@ -4,5 +4,8 @@
 
 void low_Power(void);
 void high_Power(void);
-int Check_Power(void);
+void Power_Off(void);
+void PORT1_IRQHandler(void);
+void PORT4_IRQHandler(void);
+void Check_Power(uint8_t BUTTON);
 #endif

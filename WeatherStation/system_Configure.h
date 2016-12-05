@@ -10,6 +10,7 @@
 
 void configure_clocks(void);
 void configure_serial_port();
+void configure_pins();
 void configure_All();
 
 

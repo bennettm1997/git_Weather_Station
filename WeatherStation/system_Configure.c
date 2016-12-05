@@ -45,7 +45,8 @@ void configure_clocks(void)
 	CS->CTL0 = 0; 						// reset tuning parameters
 	CS->CTL0 |= CS_CTL0_DCORSEL_0;	     // 1.5MHz
 	CS->CTL1 = CS_CTL1_SELA_2 | CS_CTL1_SELS_3 | CS_CTL1_SELM_3;
-	CS->KEY = 0;						//lock module
+	CS->KEY = 0;//lock module
+	SLEEPDEEP &= ~BIT2;
 }
 /*
 Configures our serial port for Bluetooth transmission
@@ -119,6 +120,7 @@ void configure_pins(){
 	P4IES |= BIT1;
 	P4IFG &= ~BIT1;
 	P4IE |= BIT1;//check
+	P4DIR  |= BIT3;
 	NVIC_EnableIRQ(PORT1_IRQn);
 	NVIC_EnableIRQ(PORT4_IRQn);//Enables the NVIC interrupt vector table for port 1
 }
@@ -126,7 +128,6 @@ void configure_pins(){
 This function calls all of our other configure functions to minimize function calling within the main
 */
 void configure_All(){
-	configure_Pins();
 	configure_ADC();
 	configure_clocks();
 	configure_serial_port();

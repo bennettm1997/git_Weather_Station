@@ -29,11 +29,7 @@ void high_Power(void){
 }
 
 void Power_Off(void){
-
-}
-
-void Power_On(void){
-	low_Power();
+	SLEEPDEEP |= BIT2;
 }
 
 
@@ -51,7 +47,7 @@ void PORT1_IRQHandler(void){
 	return BUTTON;
 }
 
-void PORT1_IRQHandler(void){
+void PORT4_IRQHandler(void){
 	if(P4IFG & BIT1){
 		BUTTON = BUTTONPUSHON;
 	}
@@ -70,7 +66,8 @@ void Check_Power(uint8_t BUTTON){
 		Power_Off();
 	}
 	else if(BUTTON == BUTTONPUSHON){
-		Power_On();
+		Configure_all;
+		low_Power();
 	}
 }
 

@@ -14,4 +14,3 @@ void sendLog(char strng[]){
 		uart_putchar(strng[i]);
 	}
 }
-

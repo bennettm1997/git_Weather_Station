@@ -32,6 +32,7 @@ uint16_t get_Temperature(void){
 		temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
+	return temp_find;
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
@@ -42,7 +43,7 @@ uint16_t get_Barometric_Pressure(void){
 	sendLog("Sampling Barometric Pressure Data");
 
 	slaveSelect2(HIGH);//sets low to tell the IC it is no longer being used.
-
+	return temp_find;
 }
 
 
@@ -52,6 +53,7 @@ uint16_t get_Humidity(void){
 
 
 	slaveSelect3(HIGH); //sets low to tell the IC it is no longer being used.
+	return 0;
 }
 
 /*
@@ -76,7 +78,7 @@ void get_All_Data_Fast(void){
 	int i = 0;
 
 	while(iTEMP!= 1);
-	Add_Item_To_Packet(&wPacket, TEMPERATURE, getTemperature());
+	Add_Item_To_Packet(&wPacket, TEMPERATURE, get_Temperature());
 	for(i = 0; i<1000; i++);
 
 	while(iBAROMETER != 1);
@@ -107,7 +109,7 @@ void get_All_Data_Slow(void){
 		int i = 0;
 
 		while(iTEMP!= 1);
-		Add_Item_To_Packet(&wPacket, TEMPERATURE, getTemperature());
+		Add_Item_To_Packet(&wPacket, TEMPERATURE, get_Temperature());
 		for(i = 0; i<1000; i++);
 
 		while(iBAROMETER != 1);
@@ -115,7 +117,7 @@ void get_All_Data_Slow(void){
 		for(i = 0; i<1000; i++);
 
 		while(iHUMIDITY != 1);
-		Add_Item_To_Packet(&wPacket, HUMIDITY, get_HUMIDITY());
+		Add_Item_To_Packet(&wPacket, HUMIDITY, get_Humidity());
 
 
 		for(i = 0; i<1000; i++);//delay before send

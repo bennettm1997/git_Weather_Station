@@ -17,22 +17,10 @@ uint8_t BUTTON;
 
 void low_Power(void){
 //set clock to have a frequency of 60 secs. and pull data at this time
-	((*((volatile uint16_t *)(0x40000012)))) =3000;//Our multiplier. 37000 Iterations with the correct stepdown enables us to output a 5hz waveform
-	TA0CCTL0 = TAIE | CCIE;//Capture compare interrupt enable and Timer A Interrupt Enable
-	TA0CTL = (TIMER_A_CTL_MC_1 | TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_IE | TIMER_A_CTL_ID__2);//Enabling the correct macros to use a timer interrupt
-	TA0R = 0;//This clears Timer A
-	NVIC_EnableIRQ(TA1_0_IRQn);//This enables the NVIC for A0 Timer
-
 
 	sendLog("Low Power Mode Enabled")
 }
 void high_Power(void){
-	//set clock to have a frequency of 10 secs. and pull data at this time
-	((*((volatile uint16_t *)(0x40000012)))) =3000;//Our multiplier. 37000 Iterations with the correct stepdown enables us to output a 5hz waveform
-	TA0CCTL0 = TAIE | CCIE;//Capture compare interrupt enable and Timer A Interrupt Enable
-	TA0CTL = (TIMER_A_CTL_MC_1 | TIMER_A_CTL_TASSEL_2 | TIMER_A_CTL_IE | TIMER_A_CTL_ID__2);//Enabling the correct macros to use a timer interrupt
-	TA0R = 0;//This clears Timer A
-	NVIC_EnableIRQ(TA2_0_IRQn);//This enables the NVIC for A0 Timer
 
 	sendLog("High Power Mode Enabled")
 }

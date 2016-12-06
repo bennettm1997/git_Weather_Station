@@ -18,11 +18,9 @@ uint8_t BUTTON;
 void low_Power(void){
 //set clock to have a frequency of 60 secs. and pull data at this time
 
-	sendLog("Low Power Mode Enabled")
 }
 void high_Power(void){
 
-	sendLog("High Power Mode Enabled")
 }
 
 void Power_Off(void){
@@ -51,35 +49,33 @@ void PORT4_IRQHandler(void){
 	return BUTTON;
 }
 
-void TA1_IRQHandler(void){
-	////set an if statement to raise a flag to send packet data
-	if(TA0CCTL0 & CCIFG){
-		SENDPACKET = TRUE;
-	}
-	TA0CCTL0 &=~CCIFG;
-}
 
-void TA2_IRQHandler(void){
-	//set an if statement to raise a flag to send packet data
-	if(TA0CCTL0 & CCIFG){
-		SENDPACKET = TRUE;
-	}
-	TA0CCTL0 &=~CCIFG;
-}
 //We will need a button interrupt handler for this function
+int stateLow = 0;
+int stateHigh = 0;
 void Check_Power(uint8_t BUTTON){
-	if(BUTTON == BUTTONPUSHLOW){
-		low_Power();
+	while(BUTTON == BUTTONPUSHLOW){
+		stateHigh = 0;
+		if(stateLow == 0){
+			sendLog("Low Power Mode Enabled");
+		}
+		stateLow = 1;
+		get_All_Data_Slow();
 	}
-	else if(BUTTON == BUTTONPUSHHIGH){
-		high_Power();
+	while(BUTTON == BUTTONPUSHHIGH){
+		stateLow = 0;
+		if(stateHigh == 0){
+			sendLog("High Power Mode Enabled");
+		}
+		stateHigh = 1;
+		get_All_Data_Fast();
 	}
-	else if(BUTTON == BUTTONPUSHOFF){
+	while(BUTTON == BUTTONPUSHOFF){
 		Power_Off();
 	}
-	else if(BUTTON == BUTTONPUSHON){
+	while(BUTTON == BUTTONPUSHON){
 		Configure_all;
-		low_Power();
+
 	}
 }
 

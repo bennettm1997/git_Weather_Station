@@ -37,13 +37,7 @@ void slaveSelect3(int state){
 	}
 }
 
-void SPI_MODULE_IRQ_HANDLER(void){
-	//What we actually do when the interupt is enabled.
-		if(TA0CCTL0 & CCIFG){
-			P4OUT |= BIT3;
-		}
-	TA0CCTL0 &=~CCIFG;
-}
+
 /*
  * Configures the SPI module for reading barometric pressure.
  */

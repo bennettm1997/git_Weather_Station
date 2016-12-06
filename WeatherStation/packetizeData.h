@@ -17,6 +17,6 @@ typedef	struct Packet_Data_t{
 		uint16_t humidity;
 	}Weather_Packet;
 void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, uint16_t value);
-int sendAPacket(Weather_Packet * w_Packet);
+void sendAPacket(Weather_Packet * w_Packet);
 int itoa(int value,char *ptr);
 #endif

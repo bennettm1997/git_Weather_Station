@@ -26,10 +26,10 @@ uint16_t get_Temperature(void){
 	sendLog("Sampling Temperature Data");
 	//data is what comes out of the spi
 	if(rx_data > 8192){
-		temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
+		//temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
 	}
 	else{
-		temp_find = (rx_data >> 3) * CONVERTTEMP;
+		//temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
 	return temp_find;
@@ -86,7 +86,7 @@ void get_All_Data_Fast(void){
 	for(i = 0; i<1000; i++);
 
 	while(iHUMIDITY != 1);
-	Add_Item_To_Packet(&wPacket, HUMIDITY, get_HUMIDITY());
+	Add_Item_To_Packet(&wPacket, HUMIDITY, get_Humidity());
 
 
 	for(i = 0; i<1000; i++);//delay before send

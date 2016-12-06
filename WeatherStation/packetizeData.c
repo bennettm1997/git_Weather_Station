@@ -16,8 +16,7 @@
 typedef enum PACKET_ITEM{
 	TEMPERATURE = 5,
 	BAROMETRIC_PRESSURE = 6,
-	ALTITUDE = 7,
-	DAYLIGHT_LEVEL = 8,
+	HUMIDITY = 7,
 }ITEM;
 
 /*
@@ -34,12 +33,9 @@ void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, uint16_t value){
 		w_Packet-> barometric_Pressure = value;
 
 	}
-	else if (item == ALTITUDE){
-		w_Packet-> altitude = value;
+	else if (item == HUMIDITY){
+		w_Packet-> HUMIDITY = value;
 
-	}
-	else if (item == DAYLIGHT_LEVEL){
-		w_Packet-> daylight_Level = value;
 	}
 }
 /*
@@ -59,12 +55,11 @@ int isFull(Weather_Packet *w_Packet){
 int sendAPacket(Weather_Packet * w_Packet){
 	sendLog("Sending Weather Packet");
 	char *ITOA_PTR;
-	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> altitude) != 0 && (w_Packet-> daylight_Level) != 0){//check if all values are not 0 inside w_Packet{
+	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> altitude) != 0 && (w_Packet-> humidity) != 0){//check if all values are not 0 inside w_Packet{
 		uart_putchar('*');
 		uart_putchar(itoa((w_Packet-> temperature), ITOA_PTR);
 		uart_putchar(itoa((w_Packet-> barometric_Pressure),ITOA_PTR);
-		uart_putchar(itoa((w_Packet-> altitude),ITOA_PTR);
-		uart_putchar(itoa((w_Packet-> daylight_Level),ITOA_PTR);
+		uart_putchar(itoa((w_Packet-> humidity),ITOA_PTR);
 		return GOOD;
 	}
 	else{
@@ -72,6 +67,11 @@ int sendAPacket(Weather_Packet * w_Packet){
 	}
 }
 
+void clear_Packet(Weather_Packet * w_Packet){
+		w_Packet-> temperature = 0;
+		w_Packet-> barometric_Pressure = 0;
+		w_Packet-> HUMIDITY = 0;
+}
 
 
 /*Function return size of string and convert signed  *

@@ -14,39 +14,19 @@
 uint8_t BUTTON;
 
 
-void low_Power(void){
-//set clock to have a frequency of 60 secs. and pull data at this time
-
-}
-void high_Power(void){
-
-}
-
-void Power_Off(void){
-	//SLEEPDEEP |= BIT2;
-}
 
 
 void PORT1_IRQHandler(void){
 
-	if(P1IFG & BIT6){
+	if(P1IFG & BIT4){
 		BUTTON = BUTTONPUSHLOW;
 	}
-	else if(P1IFG & BIT7){
+	else if(P1IFG & BIT1){
 		BUTTON = BUTTONPUSHHIGH;
-	}
-	else if(P1IFG & BIT5){
-		BUTTON = BUTTONPUSHOFF;
 	}
 	return BUTTON;
 }
 
-void PORT4_IRQHandler(void){
-	if(P4IFG & BIT1){
-		BUTTON = BUTTONPUSHON;
-	}
-	return BUTTON;
-}
 
 
 //We will need a button interrupt handler for this function
@@ -69,11 +49,6 @@ void Check_Power(uint8_t BUTTON){
 		stateHigh = 1;
 		get_All_Data_Fast();
 	}
-	while(BUTTON == BUTTONPUSHOFF){
-		Power_Off();
-	}
-	while(BUTTON == BUTTONPUSHON){
-		configure_All;
 
 	}
 }

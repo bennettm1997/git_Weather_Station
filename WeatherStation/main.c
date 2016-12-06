@@ -4,6 +4,9 @@
 #include "packetizeData.h"
 #include "send_Log.h"
 #include "powerMode.h"
+#include "spi_Module.h"
+#include "send_Log.h"
+#include "get_Data.h"
 void main(void)
 {
 

@@ -20,6 +20,8 @@ powerMode.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h
 powerMode.obj: C:/ti/ccsv6/ccs_base/arm/include/system_msp432p401r.h
 powerMode.obj: ../system_Configure.h
 powerMode.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+powerMode.obj: ../system_Configure.h
+powerMode.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 
 ../powerMode.c: 
 ../powerMode.h: 
@@ -39,5 +41,7 @@ C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmInstr.h:
 C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmFunc.h: 
 C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cmSimd.h: 
 C:/ti/ccsv6/ccs_base/arm/include/system_msp432p401r.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 ../system_Configure.h: 
 C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 

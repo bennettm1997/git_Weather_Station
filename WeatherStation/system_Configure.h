@@ -4,11 +4,12 @@
  *  Created on: Nov 24, 2016
  *      Author: Bennett
  */
+#include "msp.h"
+#include "core_cm4.h"
 
 #ifndef SYSTEM_CONFIGURE_H_
 #define SYSTEM_CONFIGURE_H_
-#include "msp.h"
-#include "core_cm4.h"
+
 
 void configure_clocks(void);
 void configure_serial_port();

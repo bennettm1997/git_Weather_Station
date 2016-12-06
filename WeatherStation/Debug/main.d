@@ -15,6 +15,8 @@ main.obj: C:/ti/ccsv6/ccs_base/arm/include/system_msp432p401r.h
 main.obj: ../system_Configure.h
 main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: ../packetizeData.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h
 main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/linkage.h
 main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
@@ -24,10 +26,56 @@ main.obj: ../spi_Module.h
 main.obj: ../send_Log.h
 main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
 main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: ../packetizeData.h
 main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: ../powerMode.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: ../spi_Module.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+main.obj: ../get_Data.h
+main.obj: ../spi_Module.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+main.obj: ../send_Log.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+main.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+main.obj: ../system_Configure.h
+main.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 
 ../main.c: 
 C:/ti/ccsv6/ccs_base/arm/include/msp.h: 
@@ -44,6 +92,8 @@ C:/ti/ccsv6/ccs_base/arm/include/system_msp432p401r.h:
 ../system_Configure.h: 
 C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 ../packetizeData.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/linkage.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
@@ -53,7 +103,53 @@ C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdarg.h:
 ../send_Log.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 ../packetizeData.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 ../powerMode.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 ../spi_Module.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../get_Data.h: 
+../spi_Module.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 

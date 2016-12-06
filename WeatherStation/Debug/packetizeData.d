@@ -24,8 +24,20 @@ packetizeData.obj: ../spi_Module.h
 packetizeData.obj: ../send_Log.h
 packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
 packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+packetizeData.obj: ../system_Configure.h
+packetizeData.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+packetizeData.obj: ../send_Log.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+packetizeData.obj: ../system_Configure.h
+packetizeData.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 packetizeData.obj: ../packetizeData.h
 packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h
+packetizeData.obj: ../send_Log.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
+packetizeData.obj: ../system_Configure.h
+packetizeData.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
 
 ../packetizeData.c: 
 ../packetizeData.h: 
@@ -51,5 +63,17 @@ C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdarg.h:
 ../send_Log.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
 ../packetizeData.h: 
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h: 
+../send_Log.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
+../system_Configure.h: 
+C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 

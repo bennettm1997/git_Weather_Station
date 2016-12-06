@@ -58,7 +58,6 @@ int isFull(Weather_Packet *w_Packet){
 //possibly add and identifier letting the computer know what kind of data it is. If the serial data has a * infront, then it is this kind of data.
 int sendAPacket(Weather_Packet * w_Packet){
 	sendLog("Sending Weather Packet");
-
 	char *ITOA_PTR;
 	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> altitude) != 0 && (w_Packet-> daylight_Level) != 0){//check if all values are not 0 inside w_Packet{
 		uart_putchar('*');
@@ -72,10 +71,13 @@ int sendAPacket(Weather_Packet * w_Packet){
 		return ERROR;
 	}
 }
+
+
+
 /*Function return size of string and convert signed  *
  *integer to ascii value and store them in array of  *
  *character with NULL at the end of the array        */
-
+// This function was found online : Not ours.
 int itoa(int value,char *ptr)
      {
         int count=0,temp;

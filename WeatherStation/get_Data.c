@@ -5,9 +5,6 @@
 CHECK THE DATA SHEETS TO MAKE SURE WE ARE SENDING THE CORRECT SIGNALS, Some of the IC's pins are
 active high and some are active low.
 */
-slaveSelect1(HIGH);//setting all slave states to high
-slaveSelect2(HIGH);
-slaveSelect3(HIGH);
 /*
 	Tells the temperature sensor to send temperature data
 	Recieves the temperature data
@@ -16,21 +13,28 @@ slaveSelect3(HIGH);
 */
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
 void get_Temperature(void){
-	slaveSelect1(HIGH); //sets slave select low
+	slaveSelect1(HIGH); //sets slave select
 	sendLog("Sampling Temperature Data");
-	MISO();
-	slaveSelect1(LOW); //sets slave select high
+	slaveSelect1(LOW); ////sets low to tell the IC it is no longer being used.
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
 representation of the barometric pressure.
 */
 void get_Barometric_Pressure(void){
-	slaveSelect2(HIGH);
+	slaveSelect2(HIGH);//Active low chip
 	sendLog("Sampling Barometric Pressure Data");
-	MISO();
-	slaveSelect2(LOW);
 
+	slaveSelect2(LOW);//sets low to tell the IC it is no longer being used.
+
+}
+
+void get_Humidity(void){
+	slaveSelect3(HIGH);
+	sendLog("Sampling Humidity Data");
+
+
+	slaveSelect3(LOW); //sets low to tell the IC it is no longer being used.
 }
 
 /*

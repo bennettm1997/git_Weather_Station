@@ -2,9 +2,9 @@
 #include "msp.h"
 
 /*
- * This function will just send a string of characters across UART- this is slightly buggy as it truncates some of the string data
- * We will need to add a handler for all of these logs
- * -How do we discern what kind of log it is. Possibly change all of the return values for success to different values. Each value is mapped to a certain log.
+ * This function will just send a string of characters across UART-
+ * We will need to add a handler for all of these logs -Python Script
+ * The question mark is our logging identifier. This allows our to recognize Logging versus Data
  */
 void sendLog(char strng[]){
 	uart_putchar('?'); //Logging identifier

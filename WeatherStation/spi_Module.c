@@ -1,8 +1,4 @@
 #include "spi_Module.h"
-#define ERROR -1
-#define SUCCESS 0
-#define HIGH 1
-#define LOW 0
 
 
 //pin 6.0 state 1 for high 0 for low

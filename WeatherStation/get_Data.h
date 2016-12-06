@@ -10,10 +10,10 @@
 #include "msp.h"
 #include "spi_Module.h"
 
-void get_Temperature(void);
-void get_Barometric_Pressure(void);
-void get_Humidity(void);
+uint16_t get_Temperature(void);
+uint16_t get_Barometric_Pressure(void);
+uint16_t get_Humidity(void);
 void get_All_Data_Slow(void);
 void get_All_Data_Fast(void);
-
+void TA0_0_IRQHandler(void);
 #endif /* GET_DATA_H_ */

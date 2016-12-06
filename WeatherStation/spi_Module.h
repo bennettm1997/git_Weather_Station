@@ -9,11 +9,12 @@
 #define LOW 0
 
 
-int slaveSelect1(int state);
-int slaveSelect2(int state);
-int slaveSelect3(int state);
-int MISO(void);
-int MOSI(void);
-int configure_SPI_Clock(void);
-void SPI_MODULE_IRQ_HANDLER(void);
+void slaveSelect1(int state);
+void slaveSelect2(int state);
+void slaveSelect3(int state);
+
+void configure_SPI_MODULE_BAROMETER(void);
+void configure_SPI_MODULE_TEMP(void);
+void configure_SPI_MODULE_HUMIDITY(void);
+
 #endif /* SPI_MODULE_H_ */

@@ -23,13 +23,13 @@ active high and some are active low.
 
 uint16_t get_Temperature(void){
 	slaveSelect1(LOW); //sets slave select
-	sendLog("Sampling Temperature Data");
+	sendLog("Sampling Temperature Data",25);
 	//data is what comes out of the spi
 	if(rx_data > 8192){
-		//temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
+		temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
 	}
 	else{
-		//temp_find = (rx_data >> 3) * CONVERTTEMP;
+		temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
 	return temp_find;
@@ -40,7 +40,7 @@ representation of the barometric pressure.
 */
 uint16_t get_Barometric_Pressure(void){
 	slaveSelect2(LOW);//Active low chip
-	sendLog("Sampling Barometric Pressure Data");
+	sendLog("Sampling Barometric Pressure Data",33);
 
 	slaveSelect2(HIGH);//sets low to tell the IC it is no longer being used.
 	return temp_find;
@@ -49,7 +49,7 @@ uint16_t get_Barometric_Pressure(void){
 
 uint16_t get_Humidity(void){
 	slaveSelect3(LOW);
-	sendLog("Sampling Humidity Data");
+	sendLog("Sampling Humidity Data",22);
 
 
 	slaveSelect3(HIGH); //sets low to tell the IC it is no longer being used.

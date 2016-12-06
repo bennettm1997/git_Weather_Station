@@ -13,6 +13,6 @@
 #define SEND_LOG_H_
 
 
-void sendLog(char strng[]);
+void sendLog(char strng[], uint16_t length);
 
 #endif /* SEND_LOG_H_ */

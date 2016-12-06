@@ -56,7 +56,7 @@ void Check_Power(uint8_t BUTTON){
 	while(BUTTON == BUTTONPUSHLOW){
 		stateHigh = 0;
 		if(stateLow == 0){
-			sendLog("Low Power Mode Enabled");
+			sendLog("Low Power Mode Enabled",22);
 		}
 		stateLow = 1;
 		get_All_Data_Slow();
@@ -64,7 +64,7 @@ void Check_Power(uint8_t BUTTON){
 	while(BUTTON == BUTTONPUSHHIGH){
 		stateLow = 0;
 		if(stateHigh == 0){
-			sendLog("High Power Mode Enabled");
+			sendLog("High Power Mode Enabled",23);
 		}
 		stateHigh = 1;
 		get_All_Data_Fast();

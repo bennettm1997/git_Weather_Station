@@ -9,7 +9,7 @@
 #define HIGH 1
 #define LOW 0
 
-extern int16_t rx_data;
+int16_t rx_data;
 void slaveSelect1(int state);
 void slaveSelect2(int state);
 void slaveSelect3(int state);

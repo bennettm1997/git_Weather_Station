@@ -13,5 +13,13 @@ void main(void)
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
     __enable_interrupt(); //enable global interrupts
     configure_All(); //change to configure all later
+    int i = 0;
+    sendLog("What time of the day is it",25);
+    for(i = 0; i<100; i++);
+    sendLog("What time of the day is it",25);
+    for(i = 0; i<100; i++);
+    sendLog("What time of the day is it",25);
+    for(i = 0; i<100; i++);
+    sendLog("What time of the day is it",25);
 
 }

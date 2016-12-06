@@ -4,7 +4,7 @@
 
 //pin 6.0 state 1 for high 0 for low
 void slaveSelect1(int state){
-	sendLog("Changing to Slave Select 1");
+	sendLog("Changing to Slave Select 1",26);
 	P6DIR |= BIT0;
 	if(state == HIGH){
 		P6OUT |= BIT0;
@@ -16,7 +16,7 @@ void slaveSelect1(int state){
 
 //pin 3.2 state 1 for high 0 for low
 void slaveSelect2(int state){
-	sendLog("Changing to Slave Select 2");
+	sendLog("Changing to Slave Select 2",26);
 	P3DIR |= BIT2;
 	if(state == HIGH){
 		P3OUT |= BIT2;
@@ -28,7 +28,7 @@ void slaveSelect2(int state){
 
 //pin 3.3 state 1 for high 0 for low
 void slaveSelect3(int state){
-	sendLog("Changing to Slave Select 3");
+	sendLog("Changing to Slave Select 3",26);
 	P3DIR |= BIT3;
 	if(state == HIGH){
 		P3OUT |= BIT3;

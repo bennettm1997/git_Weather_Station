@@ -23,6 +23,7 @@ active high and some are active low.
 	Returns the temperature in the form of an integer
 */
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
+
 void get_Temperature(void){
 	slaveSelect1(HIGH); //sets slave select
 	sendLog("Sampling Temperature Data");
@@ -39,6 +40,7 @@ void get_Barometric_Pressure(void){
 	slaveSelect2(LOW);//sets low to tell the IC it is no longer being used.
 
 }
+
 
 void get_Humidity(void){
 	slaveSelect3(HIGH);

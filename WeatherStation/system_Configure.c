@@ -1,5 +1,4 @@
-#include "msp.h"
-#include "core_cm4.h"
+
 #include "system_Configure.h"
 
 
@@ -14,7 +13,7 @@ void configure_clocks(void)
 	CS->CTL0 |= CS_CTL0_DCORSEL_0;	     // 1.5MHz
 	CS->CTL1 = CS_CTL1_SELA_2 | CS_CTL1_SELS_3 | CS_CTL1_SELM_3;
 	CS->KEY = 0;//lock module
-	SLEEPDEEP &= ~BIT2;
+	//SLEEPDEEP &= ~BIT2;
 }
 /*
 Configures our serial port for Bluetooth transmission

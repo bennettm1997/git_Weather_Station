@@ -1,17 +1,16 @@
-#include "msp.h"
+
 #include "powerMode.h"
-#include "send_Log.h"
-#include "system_Configure.h"
+
 
 
 /*In low power mode we will decrease the ADC sampling rate to a minimum. - Change the capture compare register to a lower value, to decrease the sampling rate.
  * In High power mode we will sample at the fastest rate we can within reason.
  *
  */
-#DEFINE BUTTONPUSHON = 3
-#DEFINE	BUTTONPUSHHIGH = 2
-#DEFINE	BUTTONPUSHLOW = 1
-#DEFINE	BUTTONPUSHOFF = 0
+#define BUTTONPUSHON  3
+#define	BUTTONPUSHHIGH  2
+#define	BUTTONPUSHLOW  1
+#define	BUTTONPUSHOFF  0
 uint8_t BUTTON;
 
 
@@ -24,7 +23,7 @@ void high_Power(void){
 }
 
 void Power_Off(void){
-	SLEEPDEEP |= BIT2;
+	//SLEEPDEEP |= BIT2;
 }
 
 
@@ -74,7 +73,7 @@ void Check_Power(uint8_t BUTTON){
 		Power_Off();
 	}
 	while(BUTTON == BUTTONPUSHON){
-		Configure_all;
+		configure_All;
 
 	}
 }

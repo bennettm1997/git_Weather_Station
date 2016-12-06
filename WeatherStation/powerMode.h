@@ -1,6 +1,9 @@
 #ifndef _powerMode_h
 #define _powerModeData_h
 #include <stdint.h>
+#include "send_Log.h"
+#include "system_Configure.h"
+#include "msp.h"
 
 void low_Power(void);
 void high_Power(void);

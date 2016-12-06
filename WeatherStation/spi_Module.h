@@ -1,4 +1,6 @@
 
+#include "msp.h"
+#include "send_Log.h"
 
 #ifndef SPI_MODULE_H_
 #define SPI_MODULE_H_

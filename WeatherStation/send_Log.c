@@ -1,5 +1,5 @@
 #include "send_Log.h"
-#include "msp.h"
+
 
 /*
  * This function will just send a string of characters across UART-
@@ -8,8 +8,8 @@
  */
 void sendLog(char strng[]){
 	uart_putchar('?'); //Logging identifier
-	uint_8 length = 100;
-	uint_8 i = 0;
+	uint8_t length = 100;
+	uint8_t i = 0;
 	for(i = 0; i<length; i++){
 		uart_putchar(strng[i]);
 	}

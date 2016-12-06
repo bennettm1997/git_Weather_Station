@@ -1,20 +1,15 @@
+
 #include "get_Data.h"
-#include "spi_Module.h"
-#include "send_Log.h"
+
 
 
 uint8_t iTEMP = 0;
 uint8_t iHUMIDITY = 0;
 uint8_t iBAROMETER = 0;
 int16_t temp_find;
-#DEFINE CONVERTTEMP 0.0625
-#DEFINE TWOSCOMP 0b1111111111111
+#define CONVERTTEMP 0.0625
+#define TWOSCOMP 0b1111111111111
 
-typedef enum PACKET_ITEM{
-	TEMPERATURE = 5,
-	BAROMETRIC_PRESSURE = 6,
-	HUMIDITY = 7,
-}ITEM;
 /*
 CHECK THE DATA SHEETS TO MAKE SURE WE ARE SENDING THE CORRECT SIGNALS, Some of the IC's pins are
 active high and some are active low.
@@ -31,7 +26,7 @@ uint16_t get_Temperature(void){
 	slaveSelect1(LOW); //sets slave select
 	sendLog("Sampling Temperature Data");
 	//data is what comes out of the spi
-	if(data > 8192){
+	if(rx_data > 8192){
 		temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
 	}
 	else{
@@ -82,20 +77,20 @@ void get_All_Data_Fast(void){
 	int i = 0;
 
 	while(iTEMP!= 1);
-	Add_Item_To_Packet(&w_Packet, TEMPERATURE, getTemperature());
+	Add_Item_To_Packet(&wPacket, TEMPERATURE, getTemperature());
 	for(i = 0; i<1000; i++);
 
 	while(iBAROMETER != 1);
-	Add_Item_To_Packet(&w_Packet, BAROMETRIC_PRESSURE, get_Barometric_Pressure());
+	Add_Item_To_Packet(&wPacket, BAROMETRIC_PRESSURE, get_Barometric_Pressure());
 	for(i = 0; i<1000; i++);
 
 	while(iHUMIDITY != 1);
-	Add_Item_To_Packet(&w_Packet, HUMIDITY, get_HUMIDITY());
+	Add_Item_To_Packet(&wPacket, HUMIDITY, get_HUMIDITY());
 
 
 	for(i = 0; i<1000; i++);//delay before send
-	sendAPacket(&w_Packet);
-	clear_Packet(&w_Packet);
+	sendAPacket(&wPacket);
+	clear_Packet(&wPacket);
 }
 
 //Tells the MSP when to sample data at specific time intervals. This will take data at slower intervals.
@@ -113,20 +108,20 @@ void get_All_Data_Slow(void){
 		int i = 0;
 
 		while(iTEMP!= 1);
-		Add_Item_To_Packet(&w_Packet, TEMPERATURE, getTemperature());
+		Add_Item_To_Packet(&wPacket, TEMPERATURE, getTemperature());
 		for(i = 0; i<1000; i++);
 
 		while(iBAROMETER != 1);
-		Add_Item_To_Packet(&w_Packet, BAROMETRIC_PRESSURE, get_Barometric_Pressure());
+		Add_Item_To_Packet(&wPacket, BAROMETRIC_PRESSURE, get_Barometric_Pressure());
 		for(i = 0; i<1000; i++);
 
 		while(iHUMIDITY != 1);
-		Add_Item_To_Packet(&w_Packet, HUMIDITY, get_HUMIDITY());
+		Add_Item_To_Packet(&wPacket, HUMIDITY, get_HUMIDITY());
 
 
 		for(i = 0; i<1000; i++);//delay before send
-		sendAPacket(&w_Packet);
-		clear_Packet(&w_Packet);
+		sendAPacket(&wPacket);
+		clear_Packet(&wPacket);
 }
 
 void TA0_0_IRQHandler(void){//What we actually do when the interupt is enabled.

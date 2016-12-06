@@ -1,6 +1,7 @@
 #include "spi_Module.h"
 
 
+
 //pin 6.0 state 1 for high 0 for low
 void slaveSelect1(int state){
 	sendLog("Changing to Slave Select 1");
@@ -27,7 +28,7 @@ void slaveSelect2(int state){
 
 //pin 3.3 state 1 for high 0 for low
 void slaveSelect3(int state){
-	sendLog("Changing to Slave Select 3")
+	sendLog("Changing to Slave Select 3");
 	P3DIR |= BIT3;
 	if(state == HIGH){
 		P3OUT |= BIT3;

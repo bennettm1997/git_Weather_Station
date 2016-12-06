@@ -9,6 +9,8 @@
 #define GET_DATA_H_
 #include "msp.h"
 #include "spi_Module.h"
+#include "send_Log.h"
+#include "packetizeData.h"
 
 uint16_t get_Temperature(void);
 uint16_t get_Barometric_Pressure(void);

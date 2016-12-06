@@ -1,7 +1,5 @@
 #include "circularBuffer.h"
-#include "msp.h"
-#include <stdlib.h>
-#include <stdio.h>
+
 #define FULL -1
 /*
  * Parameters:

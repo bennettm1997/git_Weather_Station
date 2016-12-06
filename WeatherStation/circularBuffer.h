@@ -1,6 +1,9 @@
 #ifndef _circularBuffer_h
 #define _circularBuffer_h
 #include <stdint.h>
+#include "msp.h"
+#include <stdlib.h>
+#include <stdio.h>
 typedef struct CircBuf_t{
 	volatile uint16_t * head; // Pointer to first item
 	volatile uint16_t * tail; // Pointer to last item

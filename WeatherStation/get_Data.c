@@ -78,7 +78,7 @@ void get_All_Data_Fast(void){
 	TA0CCR1 = 40000;
 	TA0CCR2 = 60000;
 	TA0R = 0;
-
+	NVIC_EnableIRQ(TA0_0_IRQn);//This enables the NVIC for A0 Timer
 	int i = 0;
 
 	while(iTEMP!= 1);
@@ -109,7 +109,7 @@ void get_All_Data_Slow(void){
 		TA0CCR1 = 40000;
 		TA0CCR2 = 60000;
 		TA0R = 0;
-
+		NVIC_EnableIRQ(TA0_0_IRQn);//This enables the NVIC for A0 Timer
 		int i = 0;
 
 		while(iTEMP!= 1);

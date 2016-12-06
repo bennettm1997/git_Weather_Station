@@ -2,40 +2,8 @@
 #include "core_cm4.h"
 #include "system_Configure.h"
 
-/*
-Configure_Pins sets all the pins to the correct orientation, whether it is input/ouput etc.
-/* 
-void configure_Pins(){
-//Set pins to enable buttons
-
-}
-/* 
-This is where we will configure the ADC to sample properly. -Might not be necessary
-*/
-extern void configure_ADC(void){
-/*
-
-	while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);// IF the reference generator is busy, WAIT
-	REF_A->CTL0 = REF_A_CTL0_VSEL_0 | REF_A_CTL0_ON; // Enable internal 1.2V ref
-	REF_A->CTL0 &= ~REF_A_CTL0_TCOFF;            // Turn on Temperature Sensor
-
-	// Configure ADC - Pulse sample mode; ADC14SC trigger
-	// ADC ON, temperature sample period>30us
-	ADC14->CTL0 |= ADC14_CTL0_SHT0_5 | ADC14_CTL0_ON | ADC14_CTL0_SHP;
-	ADC14->CTL1 |= ADC14_CTL1_RES__14BIT | ADC14_CTL1_TCMAP;     // Conf internal temp sensor channel, set resolution
-	ADC14->MCTL[0] = ADC14_MCTLN_VRSEL_0|ADC14_MCTLN_INCH_22 ;     // Map Temp Analog channel to MEM0/MCTL0, set 3.3v re
 
 
-	//ADC14->MCTL[0] =  ADC14_MCTLN_INCH_22;   A  // Map Temp Analog channel to MEM0/MCTL0, set 3.3v ref
-	ADC14->IER0 = ADC14_IER0_IE0;      // Enable MCTL0/MEM0 Interrupts OR EQUALS??
-
-	while(!(REF_A->CTL0 & REF_A_CTL0_GENRDY));
-	// Wait for ref generator to settle
-	ADC14->CTL0 |= ADC14_CTL0_ENC | ADC14_CTL0_SC;
-	//Enable Conversions
-	NVIC_EnableIRQ(ADC14_IRQn);      // Enable ADC int in NVIC module
-	 */
-}
 /*
 Configures our Clocks and sets the DCO clock to 1.5Mhz
 */
@@ -128,7 +96,6 @@ void configure_pins(){
 This function calls all of our other configure functions to minimize function calling within the main
 */
 void configure_All(){
-	configure_ADC();
 	configure_clocks();
 	configure_serial_port();
 	configure_pins();

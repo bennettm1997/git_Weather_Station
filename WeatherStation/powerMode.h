@@ -7,12 +7,6 @@
 #define _powerModeData_h
 
 
-void low_Power(void);
-void high_Power(void);
-void Power_Off(void);
 void PORT1_IRQHandler(void);
-void PORT4_IRQHandler(void);
-void TA1_IRQHandler(void);
-void TA2_IRQHandler(void);
 void Check_Power(uint8_t BUTTON);
 #endif

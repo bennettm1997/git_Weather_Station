@@ -6,6 +6,9 @@
 uint8_t iTEMP = 0;
 uint8_t iHUMIDITY = 0;
 uint8_t iBAROMETER = 0;
+int16_t temp_find;
+#DEFINE CONVERTTEMP 0.0625
+#DEFINE TWOSCOMP 0b1111111111111
 
 typedef enum PACKET_ITEM{
 	TEMPERATURE = 5,
@@ -25,29 +28,36 @@ active high and some are active low.
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
 
 uint16_t get_Temperature(void){
-	slaveSelect1(HIGH); //sets slave select
+	slaveSelect1(LOW); //sets slave select
 	sendLog("Sampling Temperature Data");
-	slaveSelect1(LOW); ////sets low to tell the IC it is no longer being used.
+	//data is what comes out of the spi
+	if(data > 8192){
+		temp_find = ((TWOSCOMP - (data >> 3)) + 0b1) * -CONVERTTEMP;
+	}
+	else{
+		temp_find = (data >> 3) * CONVERTTEMP;
+	}
+	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
 representation of the barometric pressure.
 */
 uint16_t get_Barometric_Pressure(void){
-	slaveSelect2(HIGH);//Active low chip
+	slaveSelect2(LOW);//Active low chip
 	sendLog("Sampling Barometric Pressure Data");
 
-	slaveSelect2(LOW);//sets low to tell the IC it is no longer being used.
+	slaveSelect2(HIGH);//sets low to tell the IC it is no longer being used.
 
 }
 
 
 uint16_t get_Humidity(void){
-	slaveSelect3(HIGH);
+	slaveSelect3(LOW);
 	sendLog("Sampling Humidity Data");
 
 
-	slaveSelect3(LOW); //sets low to tell the IC it is no longer being used.
+	slaveSelect3(HIGH); //sets low to tell the IC it is no longer being used.
 }
 
 /*

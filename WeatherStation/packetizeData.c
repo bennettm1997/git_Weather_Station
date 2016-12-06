@@ -23,7 +23,7 @@ typedef enum PACKET_ITEM{
  * Fills the defualt packet to send over bluetooth.
  * Paramaters: w_Packet: Instance of a weather packet
  */
-void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, uint16_t value){
+void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, int16_t value){
 	sendLog("Filling Weather Packet");
 
 	if(item == TEMPERATURE){

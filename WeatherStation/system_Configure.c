@@ -2,13 +2,7 @@
 #include "core_cm4.h"
 #include "system_Configure.h"
 
-/*
-Configure_Pins sets all the pins to the correct orientation, whether it is input/ouput etc.
-/* 
-void configure_Pins(){
-//Set pins to enable buttons
 
-}
 
 /*
 Configures our Clocks and sets the DCO clock to 1.5Mhz

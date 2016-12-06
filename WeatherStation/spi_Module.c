@@ -48,40 +48,40 @@ void SPI_MODULE_IRQ_HANDLER(void){
  * Configures the SPI module for reading barometric pressure.
  */
 void configure_SPI_MODULE_BAROMETER(void){
-	UCA1CTLW0 |= UCSWRST;// Put eUSCI in reset
+	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 
-	UCA1CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
-	UCA1CTLW0 |=UCMSB;					//MSB first
+	UCB0CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCB0CTLW0 |=UCMSB;					//MSB first
 
-	UCA1CTLW0 &	~UC7BIT;				// 8 bit data
-	UCA1CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
+	UCB0CTLW0 &	~UC7BIT;				// 8 bit data
+	UCB0CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
 
-	UCA1CTLW0 |= UCMST;
+	UCB0CTLW0 |= UCMST;
 
-	UCA1CTLW0 & ~UCSPB;					//one stop bit
-	UCA1CTLW0 |= UCSSEL_2;				//SMCLK
-	UCA1BR0 = 26; 						//set baud rate
-	UCA1BR1 = 0;
+	UCB0CTLW0 & ~UCSPB;					//one stop bit
+	UCB0CTLW0 |= UCSSEL_2;				//SMCLK
+	UCB0BR0 = 26; 						//set baud rate
+	UCB0BR1 = 0;
 
 }
 /*
  * Configures the SPI module for reading temperature.
  */
 void configure_SPI_MODULE_TEMP(void){
-	UCA1CTLW0 |= UCSWRST;// Put eUSCI in reset
+	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 
-	UCA1CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
-	UCA1CTLW0 |=UCMSB;					//MSB first
+	UCB0CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCB0CTLW0 |=UCMSB;					//MSB first
 
-	UCA1CTLW0 &	~UC7BIT;				// 8 bit data
-	UCA1CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
+	UCB0CTLW0 &	~UC7BIT;				// 8 bit data
+	UCB0CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
 
-	UCA1CTLW0 |= UCMST;
+	UCB0CTLW0 |= UCMST;
 
-	UCA1CTLW0 & ~UCSPB;					//one stop bit
-	UCA1CTLW0 |= UCSSEL_2;				//SMCLK
-	UCA1BR0 = 26; 						//set baud rate
-	UCA1BR1 = 0;
+	UCB0CTLW0 & ~UCSPB;					//one stop bit
+	UCB0CTLW0 |= UCSSEL_2;				//SMCLK
+	UCB0BR0 = 26; 						//set baud rate
+	UCB0BR1 = 0;
 
 }
 
@@ -90,20 +90,20 @@ void configure_SPI_MODULE_TEMP(void){
  * Configures the SPI module for reading humidity.
  */
 void configure_SPI_MODULE_HUMIDITY(void){
-	UCA1CTLW0 |= UCSWRST;// Put eUSCI in reset
+	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 
-	UCA1CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
-	UCA1CTLW0 |=UCMSB;					//MSB first
+	UCB0CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCB0CTLW0 |=UCMSB;					//MSB first
 
-	UCA1CTLW0 &	~UC7BIT;				// 8 bit data
-	UCA1CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
+	UCB0CTLW0 &	~UC7BIT;				// 8 bit data
+	UCB0CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
 
-	UCA1CTLW0 |= UCMST;
+	UCB0CTLW0 |= UCMST;
 
-	UCA1CTLW0 & ~UCSPB;					//one stop bit
-	UCA1CTLW0 |= UCSSEL_2;				//SMCLK
-	UCA1BR0 = 26; 						//set baud rate
-	UCA1BR1 = 0;
+	UCB0CTLW0 & ~UCSPB;					//one stop bit
+	UCB0CTLW0 |= UCSSEL_2;				//SMCLK
+	UCB0BR0 = 26; 						//set baud rate
+	UCB0BR1 = 0;
 
 }
 

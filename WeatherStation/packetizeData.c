@@ -71,10 +71,13 @@ int sendAPacket(Weather_Packet * w_Packet){
 		return ERROR;
 	}
 }
+
+
+
 /*Function return size of string and convert signed  *
  *integer to ascii value and store them in array of  *
  *character with NULL at the end of the array        */
-
+// This function was found online : Not ours.
 int itoa(int value,char *ptr)
      {
         int count=0,temp;

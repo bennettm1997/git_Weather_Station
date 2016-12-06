@@ -14,12 +14,12 @@ void main(void)
     __enable_interrupt(); //enable global interrupts
     configure_All(); //change to configure all later
     int i = 0;
-    sendLog("What time of the day is it",25);
+    sendLog("What time of the day is it",26);
     for(i = 0; i<100; i++);
-    sendLog("What time of the day is it",25);
+    sendLog("What time of the day is it",26);
     for(i = 0; i<100; i++);
-    sendLog("What time of the day is it",25);
+    sendLog("What time of the day is it",26);
     for(i = 0; i<100; i++);
-    sendLog("What time of the day is it",25);
-
+    sendLog("What time of the day is it",26);
+    get_All_Data_Fast();
 }

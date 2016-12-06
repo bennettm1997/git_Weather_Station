@@ -38,13 +38,14 @@ void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, int16_t value){
 //possibly add and identifier letting the computer know what kind of data it is. If the serial data has a * infront, then it is this kind of data.
 uint8_t sendAPacket(Weather_Packet * w_Packet){
 	sendLog("Sending Weather Packet",22);
-	char *ITOA_PTR = 0;
+	char *ITOA_PTR = malloc(5);
 	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> temperature) != 0 && (w_Packet-> humidity) != 0){//check if all values are not 0 inside w_Packet{
 		uart_putchar('*');
 		uart_putchar(itoa((w_Packet-> temperature), ITOA_PTR));
 		uart_putchar(itoa((w_Packet-> barometric_Pressure),ITOA_PTR));
 		uart_putchar(itoa((w_Packet-> humidity),ITOA_PTR));
 		return GOOD;
+		free(ITOA_PTR);
 	}
 	else{
 		return ERROR;

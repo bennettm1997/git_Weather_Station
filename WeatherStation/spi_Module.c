@@ -50,15 +50,15 @@ void SPI_MODULE_IRQ_HANDLER(void){
 void configure_SPI_MODULE_BAROMETER(void){
 	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 
-	UCB0CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCB0CTLW0 &= ~UCPEN;					//select Frame parameters and clock source; parity disabled
 	UCB0CTLW0 |=UCMSB;					//MSB first
 
-	UCB0CTLW0 &	~UC7BIT;				// 8 bit data
+	UCB0CTLW0 &= ~UC7BIT;				// 8 bit data
 	UCB0CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
 
 	UCB0CTLW0 |= UCMST;
 
-	UCB0CTLW0 & ~UCSPB;					//one stop bit
+	UCB0CTLW0 &= ~UCSPB;					//one stop bit
 	UCB0CTLW0 |= UCSSEL_2;				//SMCLK
 	UCB0BR0 = 26; 						//set baud rate
 	UCB0BR1 = 0;
@@ -70,15 +70,15 @@ void configure_SPI_MODULE_BAROMETER(void){
 void configure_SPI_MODULE_TEMP(void){
 	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 
-	UCB0CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCB0CTLW0 &= ~UCPEN;					//select Frame parameters and clock source; parity disabled
 	UCB0CTLW0 |=UCMSB;					//MSB first
 
-	UCB0CTLW0 &	~UC7BIT;				// 8 bit data
+	UCB0CTLW0 &= ~UC7BIT;				// 8 bit data
 	UCB0CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
 
 	UCB0CTLW0 |= UCMST;
 
-	UCB0CTLW0 & ~UCSPB;					//one stop bit
+	UCB0CTLW0 &= ~UCSPB;					//one stop bit
 	UCB0CTLW0 |= UCSSEL_2;				//SMCLK
 	UCB0BR0 = 26; 						//set baud rate
 	UCB0BR1 = 0;
@@ -92,15 +92,15 @@ void configure_SPI_MODULE_TEMP(void){
 void configure_SPI_MODULE_HUMIDITY(void){
 	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 
-	UCB0CTLW0 & ~UCPEN;					//select Frame parameters and clock source; parity disabled
+	UCB0CTLW0 &= ~UCPEN;					//select Frame parameters and clock source; parity disabled
 	UCB0CTLW0 |=UCMSB;					//MSB first
 
-	UCB0CTLW0 &	~UC7BIT;				// 8 bit data
+	UCB0CTLW0 &= ~UC7BIT;				// 8 bit data
 	UCB0CTLW0 |= UCMODE_2;				//SPI ACTIVE LOW
 
 	UCB0CTLW0 |= UCMST;
 
-	UCB0CTLW0 & ~UCSPB;					//one stop bit
+	UCB0CTLW0 &= ~UCSPB;					//one stop bit
 	UCB0CTLW0 |= UCSSEL_2;				//SMCLK
 	UCB0BR0 = 26; 						//set baud rate
 	UCB0BR1 = 0;

@@ -121,21 +121,6 @@ void configure_pins(){
 	P4IFG &= ~BIT1;
 	P4IE |= BIT1;//check
 	P4DIR  |= BIT3;
-
-
-	//Configures SCLCK for USCI
-	P1SEL0 |= BIT5;
-	P1SEL1 &= ~BIT5;
-
-	//MISO for USCI
-	P1SEL0 |= BIT7;
-	P1SEL1 &= ~BIT7;
-
-	//MOSI for USCI
-	P1SEL0 |= BIT6;
-	P1SEL1 &= ~BIT6;
-
-
 	NVIC_EnableIRQ(PORT1_IRQn);
 	NVIC_EnableIRQ(PORT4_IRQn);//Enables the NVIC interrupt vector table for port 1
 }

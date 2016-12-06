@@ -32,10 +32,10 @@ uint16_t get_Temperature(void){
 	sendLog("Sampling Temperature Data");
 	//data is what comes out of the spi
 	if(data > 8192){
-		temp_find = ((TWOSCOMP - (data >> 3)) + 0b1) * -CONVERTTEMP;
+		temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
 	}
 	else{
-		temp_find = (data >> 3) * CONVERTTEMP;
+		temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
 }

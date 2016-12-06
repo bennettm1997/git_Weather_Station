@@ -101,6 +101,11 @@ void configure_SPI_MODULE_HUMIDITY(void){
 
 }
 
-
+int16_t spi_putchar(void){
+	rx_data = 0;
+	while(!(UCB0IFG & UCRXIFG));//block until transmitter is ready
+	rx_data = UCB0RXBUF;//load data onto buffer
+	return rx_data;
+}
 
 

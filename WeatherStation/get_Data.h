@@ -12,7 +12,7 @@
 #define GET_DATA_H_
 
 
-uint16_t get_Temperature(void);
+int16_t get_Temperature(void);
 uint16_t get_Barometric_Pressure(void);
 uint16_t get_Humidity(void);
 void get_All_Data_Slow(void);

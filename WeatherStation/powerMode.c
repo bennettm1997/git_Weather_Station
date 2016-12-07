@@ -50,7 +50,7 @@ void Check_Power(uint8_t BUTTON){
 		get_All_Data_Fast();
 	}
 
-	}
+
 }
 
 

@@ -12,4 +12,5 @@ void sendLog(char strng[], uint16_t length){
 	for(i = 0; i<length; i++){
 		uart_putchar(strng[i]);
 	}
+	uart_putchar('\n');
 }

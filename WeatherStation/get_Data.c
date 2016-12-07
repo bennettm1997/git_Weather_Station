@@ -21,7 +21,7 @@ active high and some are active low.
 */
 //Wake up Slave Select for this IC; output on a pin connected to the slave select.
 
-uint16_t get_Temperature(void){
+int16_t get_Temperature(void){
 	slaveSelect1(LOW); //sets slave select
 	sendLog("Sampling Temperature Data",25);
 	//data is what comes out of the spi
@@ -32,7 +32,7 @@ uint16_t get_Temperature(void){
 		temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
-	return 1;
+	return temp_find;
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
@@ -76,14 +76,6 @@ void get_All_Data_Fast(void){
 	TA0R = 0;
 	NVIC_EnableIRQ(TA0_0_IRQn);//This enables the NVIC for A0 Timer
 	int i = 0;
-
-
-
-	Add_Item_To_Packet(&wPacket, TEMPERATURE, 1);
-	Add_Item_To_Packet(&wPacket, HUMIDITY, 1);
-	Add_Item_To_Packet(&wPacket, BAROMETRIC_PRESSURE, 1);
-
-	sendAPacket(&wPacket);
 
 
 

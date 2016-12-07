@@ -58,6 +58,16 @@ void configure_SPI_MODULE_BAROMETER(void){
 	UCB0BR0 = 26; 						//set baud rate
 	UCB0BR1 = 0;
 
+	P1SEL0|=BIT5;//SCLK
+	P1SEL1 &= ~BIT5;
+
+	P1SEL0|=BIT7;//MISO
+	P1SEL1 &= ~BIT7;
+
+	P1SEL0|=BIT7;//MOSI
+	P1SEL1 &= ~BIT7;
+
+
 }
 /*
  * Configures the SPI module for reading temperature.

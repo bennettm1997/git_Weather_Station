@@ -38,6 +38,9 @@ packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
 packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
 packetizeData.obj: ../system_Configure.h
 packetizeData.obj: C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h
+packetizeData.obj: C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
 
 ../packetizeData.c: 
 ../packetizeData.h: 
@@ -77,3 +80,6 @@ C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h:
 C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
 ../system_Configure.h: 
 C:/ti/ccsv6/ccs_base/arm/include/CMSIS/core_cm4.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdio.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h: 
+C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 

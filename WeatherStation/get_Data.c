@@ -24,6 +24,7 @@ active high and some are active low.
 int16_t get_Temperature(void){
 	slaveSelect1(LOW); //sets slave select
 	sendLog("Sampling Temperature Data",25);
+	//call configure spi module
 	//data is what comes out of the spi
 	if(rx_data > 8192){
 		temp_find = ((TWOSCOMP - (rx_data >> 3)) + 0b1) * -CONVERTTEMP;
@@ -32,7 +33,7 @@ int16_t get_Temperature(void){
 		temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
-	return temp_find;
+	return 1;
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
@@ -64,11 +65,11 @@ uint16_t get_Humidity(void){
 Weather_Packet wPacket; //creates the instance of our weather packet
 void get_All_Data_Fast(void){
 
-	TA0CCTL0 |= CCIE; //Enable Capture compare interrupt
-
-	TA0CTL |= TIMER_A_CTL_MC_1;  //up mode
-	TA0CTL |= TASSEL_2; //SMCLCK
-	TA0CTL |= TAIE; //Timer a interrupt enable
+	TA0CCTL0 |= CCIE|TAIE ; //Enable Capture compare interrupt
+	TA0CCTL1 |= CCIE|TAIE;
+	TA0CCTL2 |= CCIE|TAIE;
+	TA0CTL |= TIMER_A_CTL_MC_2|TASSEL_2;  //up mode
+	 //Timer a interrupt enable
 	//TA0CTL |= ID_2; This is the Divide by
 	TA0CCR0 = 20000;
 	TA0CCR1 = 40000;
@@ -78,22 +79,24 @@ void get_All_Data_Fast(void){
 	int i = 0;
 
 
-
-	while(iTEMP!= 1);
-	Add_Item_To_Packet(&wPacket, TEMPERATURE, get_Temperature());
-	for(i = 0; i<1000; i++);
-
-	while(iBAROMETER != 1);
-	Add_Item_To_Packet(&wPacket, BAROMETRIC_PRESSURE, get_Barometric_Pressure());
-	for(i = 0; i<1000; i++);
-
-	while(iHUMIDITY != 1);
-	Add_Item_To_Packet(&wPacket, HUMIDITY, get_Humidity());
+	while(1){
+		while(iTEMP!= 1);
+		Add_Item_To_Packet(&wPacket, TEMPERATURE, get_Temperature());
+		iTEMP = 0;
 
 
-	for(i = 0; i<1000; i++);//delay before send
-	sendAPacket(&wPacket);
-	clear_Packet(&wPacket);
+		while(iBAROMETER != 1);
+		Add_Item_To_Packet(&wPacket, BAROMETRIC_PRESSURE, get_Barometric_Pressure());
+		iBAROMETER = 0;
+
+		while(iHUMIDITY != 1);
+		Add_Item_To_Packet(&wPacket, HUMIDITY, get_Humidity());
+		iHUMIDITY = 0;
+
+		for(i = 0; i<1000; i++);//delay before send
+		sendAPacket(&wPacket);
+		clear_Packet(&wPacket);
+	}
 }
 
 //Tells the MSP when to sample data at specific time intervals. This will take data at slower intervals.
@@ -108,6 +111,8 @@ void get_All_Data_Slow(void){
 		TA0CCR2 = 60000;
 		TA0R = 0;
 		NVIC_EnableIRQ(TA0_0_IRQn);//This enables the NVIC for A0 Timer
+		TA0CCTL0 &=~CCIFG;
+
 		int i = 0;
 
 		while(iTEMP!= 1);
@@ -128,16 +133,21 @@ void get_All_Data_Slow(void){
 }
 
 void TA0_0_IRQHandler(void){//What we actually do when the interupt is enabled.
-		if(TA0CCR0 & CCIFG){
+
+		if(TA0CCTL0 & CCIFG){
 			iTEMP = 1;
 		}
-		if(TA0CCR1 & CCIFG){
+		if(TA0CCTL1 & CCIFG){
 			iBAROMETER = 1;
 		}
-		if(TA0CCR2 & CCIFG){
+		if(TA0CCTL2 & CCIFG){
 			iHUMIDITY = 1;
+
+
 		}
-		TA0CCTL0 &=~CCIFG;
+		TA0CCTL0 &= ~CCIFG;
+		TA0CCTL1 &= ~CCIFG;
+		TA0CCTL2 &= ~CCIFG;
 }
 
 

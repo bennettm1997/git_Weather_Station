@@ -59,6 +59,7 @@ void uart_putchar_n(uint8_t * data, uint32_t length){
 }
 void configure_pins(){
 	//Configures 1.7 Switch
+	/*
 	P1DIR &=~BIT7;//Changes to be input
 	P1REN |= BIT7;//Pullup vs Pulldown resistor
 	P1OUT|= BIT7;
@@ -81,6 +82,7 @@ void configure_pins(){
 	P1IFG &= ~BIT5;
 	P1IE |= BIT5;//check
 
+*/
 	P4DIR &=~BIT1;// See aboves this is for switch 1.5 same thing
 	P4REN |= BIT1;
 	P4OUT|= BIT1;

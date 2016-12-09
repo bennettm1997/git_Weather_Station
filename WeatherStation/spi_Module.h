@@ -10,13 +10,13 @@
 #define LOW 0
 
 int16_t rx_data;
-void slaveSelect1(int state);
+void slaveSelect1(void);
 void slaveSelect2(int state);
 void slaveSelect3(int state);
 
 void configure_SPI_MODULE_BAROMETER(void);
 void configure_SPI_MODULE_TEMP(void);
 void configure_SPI_MODULE_HUMIDITY(void);
-int16_t spi_putchar(void);
+//extern void EUSCIB0_IRQHandler(void);
 
 #endif /* SPI_MODULE_H_ */

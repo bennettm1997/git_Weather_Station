@@ -72,6 +72,14 @@ void configure_SPI_MODULE_BAROMETER(void){
 /*
  * Configures the SPI module for reading temperature.
  */
+
+
+
+
+
+
+
+//add synchronous
 void configure_SPI_MODULE_TEMP(void){
 	UCB0CTLW0 |= UCSWRST;// Put eUSCI in reset
 

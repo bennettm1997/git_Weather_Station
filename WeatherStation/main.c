@@ -13,6 +13,7 @@ void main(void)
     WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
     __enable_interrupt(); //enable global interrupts
     configure_All(); //change to configure all later
+    configure_SPI_MODULE_TEMP();
     /*
     slaveSelect1(1);
     slaveSelect2(1);

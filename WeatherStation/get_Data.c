@@ -142,8 +142,6 @@ void TA0_0_IRQHandler(void){//What we actually do when the interupt is enabled.
 		}
 		if(TA0CCTL2 & CCIFG){
 			iHUMIDITY = 1;
-
-
 		}
 		TA0CCTL0 &= ~CCIFG;
 		TA0CCTL1 &= ~CCIFG;

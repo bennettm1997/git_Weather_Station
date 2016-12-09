@@ -1,4 +1,3 @@
-
 #include "system_Configure.h"
 
 
@@ -102,5 +101,3 @@ void configure_All(){
 	configure_serial_port();
 	configure_pins();
 }
-
-

@@ -9,14 +9,13 @@
 #include "get_Data.h"
 void main(void)
 {
-
-    WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
+       WDTCTL = WDTPW | WDTHOLD;           // Stop watchdog timer
     __enable_interrupt(); //enable global interrupts
     configure_All(); //change to configure all later
-    /*
-    slaveSelect1(1);
-    slaveSelect2(1);
-    slaveSelect3(1);
-    */
-    get_All_Data_Fast();
+
+    slaveSelect1(1);//Set the slaves to high, the chips are active low.
+    slaveSelect2(1);//Set the slaves to high, the chips are active low.
+    slaveSelect3(1);//Set the slaves to high, the chips are active low.
+    get_All_Data_Fast();//Test Case as our project was not finished. Default state is to send at the faster rate.
+    while(1);
 }

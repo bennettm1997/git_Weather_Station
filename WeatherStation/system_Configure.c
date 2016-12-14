@@ -59,39 +59,24 @@ void uart_putchar_n(uint8_t * data, uint32_t length){
 }
 void configure_pins(){
 	//Configures 1.7 Switch
-	/*
-	P1DIR &=~BIT7;//Changes to be input
-	P1REN |= BIT7;//Pullup vs Pulldown resistor
-	P1OUT|= BIT7;
-	P1IES |= BIT7;//Interrupt Edge Select
-	P1IFG &= ~BIT7;//Clears any pending port interrupt flags
-	P1IE |= BIT7;//This actually enables the pin to be an interrupt
+
+	P1DIR &=~BIT1;//Changes to be input
+	P1REN |= BIT1;//Pullup vs Pulldown resistor
+	P1OUT|= BIT1;
+	P1IES |= BIT1;//Interrupt Edge Select
+	P1IFG &= ~BIT1;//Clears any pending port interrupt flags
+	P1IE |= BIT1;//This actually enables the pin to be an interrupt
 
 
-	P1DIR &=~BIT6;// See aboves this is for switch 1.6 same thing
-	P1REN |= BIT6;
-	P1OUT|= BIT6;
-	P1IES |= BIT6;
-	P1IFG &= ~BIT6;
-	P1IE |= BIT6;//check
+	P1DIR &=~BIT4;// See aboves this is for switch 1.6 same thing
+	P1REN |= BIT4;
+	P1OUT|= BIT4;
+	P1IES |= BIT4;
+	P1IFG &= ~BIT4;
+	P1IE |= BIT4;//check
 
-	P1DIR &=~BIT5;// See aboves this is for switch 1.5 same thing
-	P1REN |= BIT5;
-	P1OUT|= BIT5;
-	P1IES |= BIT5;
-	P1IFG &= ~BIT5;
-	P1IE |= BIT5;//check
-
-*/
-	P4DIR &=~BIT1;// See aboves this is for switch 1.5 same thing
-	P4REN |= BIT1;
-	P4OUT|= BIT1;
-	P4IES |= BIT1;
-	P4IFG &= ~BIT1;
-	P4IE |= BIT1;//check
-	P4DIR  |= BIT3;
 	NVIC_EnableIRQ(PORT1_IRQn);
-	NVIC_EnableIRQ(PORT4_IRQn);//Enables the NVIC interrupt vector table for port 1
+	//NVIC_EnableIRQ(PORT4_IRQn);//Enables the NVIC interrupt vector table for port 1
 }
 /*
 This function calls all of our other configure functions to minimize function calling within the main

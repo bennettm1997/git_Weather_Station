@@ -12,47 +12,42 @@
 
 
 
-/*
- * Fills the defualt packet to send over bluetooth.
- * Paramaters: w_Packet: Instance of a weather packet
- */
+
 void Add_Item_To_Packet(Weather_Packet *w_Packet, ITEM item, int16_t value){
-	sendLog("Filling Weather Packet",22);
+	sendLog("Filling Weather Packet",22);//logging identifier
 
-	if(item == TEMPERATURE){
-		w_Packet-> temperature = value;
+	if(item == TEMPERATURE){//if item is said to be temp
+		w_Packet-> temperature = value;//load item onto packet
 	}
-	else if (item == BAROMETRIC_PRESSURE){
-		w_Packet-> barometric_Pressure = value;
+	else if (item == BAROMETRIC_PRESSURE){//if item is said to be barometric pressure.
+		w_Packet-> barometric_Pressure = value;//load item onto packet.
 
 	}
-	else if (item == HUMIDITY){
-		w_Packet-> humidity = value;
+	else if (item == HUMIDITY){//if item is said to be barometric pressure
+		w_Packet-> humidity = value;//load item onto packet
 
 	}
 }
-/*
- * Returns GOOD, if weather packet is full. GOOD = 0
- * Returns ERROR, if weather packet has yet to be filled. ERROR =-1
- */
 
 
-//possibly add and identifier letting the computer know what kind of data it is. If the serial data has a * infront, then it is this kind of data.
+
 uint8_t sendAPacket(Weather_Packet * w_Packet){
-	sendLog("Sending Weather Packet",22);
+	sendLog("Sending Weather Packet",22);//logging
 	if((w_Packet-> barometric_Pressure) != 0 && (w_Packet-> temperature) != 0 && (w_Packet-> humidity) != 0){//check if all values are not 0 inside w_Packet{
-		uart_putchar('*');
-		itoa(w_Packet-> temperature);
+		uart_putchar('*');//logging identifier
 		uart_putchar('\n');
-		itoa(w_Packet-> barometric_Pressure);
+		itoa(w_Packet-> temperature);//sends temp ascii
 		uart_putchar('\n');
-		itoa(w_Packet-> humidity);
+		itoa(w_Packet-> barometric_Pressure);//sends barometric pressure ascii
 		uart_putchar('\n');
+		itoa(w_Packet-> humidity);//sends humidity ascii
+		uart_putchar('\n');
+		uart_putchar('}');//end log
 		return GOOD;
 
 	}
 	else{
-		return ERROR;
+		return ERROR;//not used: for timing issues.
 	}
 }
 
@@ -62,30 +57,26 @@ void clear_Packet(Weather_Packet * w_Packet){
 		w_Packet-> humidity = 0;
 }
 
-
-/*Function return size of string and convert signed  *
- *integer to ascii value and store them in array of  *
- *character with NULL at the end of the array        */
-// This function was found online : Not ours.
 void itoa(int16_t num){
 	uint8_t p_hold = 0;
 	uint8_t p_hold2 = 0;
 	uint8_t p_hold3 = 0;
+	if(num == 1)uart_putchar(1);
 	if(num < 0){
 		uart_putchar('-');
 		num = num * -1;
 	}
 	if(num < 10){
-		p_hold = num + 48;
+		p_hold = num + 48;//48 ascii offset
 		uart_putchar(p_hold);
 	}
-	else if((num >= 10) && (num < 100)){
+	else if((num >= 10) && (num < 100)){//tens place
 		p_hold = (num % 10) + 48;
 		p_hold2 = (num / 10) + 48;
 		uart_putchar(p_hold2);
 		uart_putchar(p_hold);
 	}
-	else if ((num>=100) && (num<1000)){
+	else if ((num>=100) && (num<1000)){//thousands place
 		p_hold = (num % 10) + 48;
 		p_hold2 = (num / 100) + 48;
 		p_hold3 = ((num % 100) / 10) + 48;

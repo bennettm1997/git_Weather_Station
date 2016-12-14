@@ -1,14 +1,7 @@
 #include "circularBuffer.h"
 
 #define FULL -1
-/*
- * Parameters:
- * Length- Takes a 32 bit integer value representing the size of the FIFO.
- * *buf represents a buffer object that was instantiated.
- * Use: creates a buffer of size length. This function then allocates the necessary amount of memory.
- * Return type: Void
- *
- */
+
 void InitializeBuffer(CircBuf * buf, uint32_t length)
 {
 	buf->buffer = (uint8_t*)malloc(length);
@@ -21,10 +14,7 @@ void InitializeBuffer(CircBuf * buf, uint32_t length)
 	buf->length = length;
 	buf->num_items = 0;
 }
-/*
- * Recursive
- * Clear buffer takes in our buffer and clears each individual element one at a time.
- */
+
 uint32_t ClearBuffer(CircBuf * buf)
 {
 	if(buf->head != buf->tail)//check for when the head of the buffer is not the same as the tail. IE not empty.

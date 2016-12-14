@@ -1,7 +1,4 @@
 #include "get_Data.h"
-
-
-
 uint8_t iTEMP = 0;
 uint8_t iHUMIDITY = 0;
 uint8_t iBAROMETER = 0;
@@ -9,10 +6,7 @@ int16_t temp_find;
 #define CONVERTTEMP 0.0625
 #define TWOSCOMP 0b1111111111111
 
-/*
-CHECK THE DATA SHEETS TO MAKE SURE WE ARE SENDING THE CORRECT SIGNALS, Some of the IC's pins are
-active high and some are active low.
-*/
+
 /*
 	Tells the temperature sensor to send temperature data
 	Recieves the temperature data
@@ -33,7 +27,7 @@ int16_t get_Temperature(void){
 		temp_find = (rx_data >> 3) * CONVERTTEMP;
 	}
 	slaveSelect1(HIGH); ////sets low to tell the IC it is no longer being used.
-	return 1;
+	return 71;
 }
 /*
 Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
@@ -44,17 +38,20 @@ uint16_t get_Barometric_Pressure(void){
 	sendLog("Sampling Barometric Pressure Data",33);
 
 	slaveSelect2(HIGH);//sets low to tell the IC it is no longer being used.
-	return 1;
+	return 101;
 }
 
-
+/*
+Wake the Barometer IC up and get a data sample. Perform the math to convert the ADC data to an integer
+representation of the barometric pressure.
+*/
 uint16_t get_Humidity(void){
 	slaveSelect3(LOW);
 	sendLog("Sampling Humidity Data",22);
 
 
 	slaveSelect3(HIGH); //sets low to tell the IC it is no longer being used.
-	return 1;
+	return 20;
 }
 
 /*
@@ -68,7 +65,7 @@ void get_All_Data_Fast(void){
 	TA0CCTL0 |= CCIE|TAIE ; //Enable Capture compare interrupt
 	TA0CCTL1 |= CCIE|TAIE;
 	TA0CCTL2 |= CCIE|TAIE;
-	TA0CTL |= TIMER_A_CTL_MC_2|TASSEL_2;  //up mode
+	TA0CTL |= TIMER_A_CTL_MC_2|TASSEL_1 |ID_2;  //up mode
 	 //Timer a interrupt enable
 	//TA0CTL |= ID_2; This is the Divide by
 	TA0CCR0 = 20000;
@@ -103,7 +100,7 @@ void get_All_Data_Fast(void){
 void get_All_Data_Slow(void){
 		TA0CCTL0 |= CCIE; //Enable Capture compare interrupt
 		TA0CTL |= TIMER_A_CTL_MC_1;  //up mode
-		TA0CTL |= TASSEL_2; //SMCLCK
+		TA0CTL |= TASSEL_3; //SMCLCK
 		TA0CTL |= TAIE; //Timer a interrupt enable
 		TA0CTL |= ID_3; //This is the Divide by 8
 		TA0CCR0 = 20000;
@@ -132,6 +129,7 @@ void get_All_Data_Slow(void){
 		clear_Packet(&wPacket);
 }
 
+
 void TA0_0_IRQHandler(void){//What we actually do when the interupt is enabled.
 
 		if(TA0CCTL0 & CCIFG){
@@ -141,9 +139,6 @@ void TA0_0_IRQHandler(void){//What we actually do when the interupt is enabled.
 			iBAROMETER = 1;
 		}
 		if(TA0CCTL2 & CCIFG){
-			iHUMIDITY = 1;
-
-
 		}
 		TA0CCTL0 &= ~CCIFG;
 		TA0CCTL1 &= ~CCIFG;

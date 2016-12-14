@@ -35,10 +35,10 @@ representation of the barometric pressure.
 */
 uint16_t get_Barometric_Pressure(void){
 	slaveSelect2(LOW);//Active low chip
-	sendLog("Sampling Barometric Pressure Data",33);
+	//sendLog("Sampling Barometric Pressure Data",33);
 
 	slaveSelect2(HIGH);//sets low to tell the IC it is no longer being used.
-	return 101;
+	return 1;
 }
 
 /*

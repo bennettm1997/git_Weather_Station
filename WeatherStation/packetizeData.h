@@ -42,7 +42,7 @@ uint8_t sendAPacket(Weather_Packet * w_Packet);
 
 
 /*
- * Cleas the contents of the weather packet.
+ * Clears the contents of the weather packet.
  */
 void clear_Packet(Weather_Packet * w_Packet);
 

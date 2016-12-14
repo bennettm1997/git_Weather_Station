@@ -1,4 +1,3 @@
-
 #include "msp.h"
 #include "send_Log.h"
 
@@ -9,6 +8,7 @@
 #define HIGH 1
 #define LOW 0
 
+<<<<<<< HEAD
 int16_t rx_data;//rx buffer data.
 
 /*
@@ -19,6 +19,10 @@ void slaveSelect1(int state);
 /*
  * Sets slave select2 pin to high/low depending on what state is. State = 1 Pin 3.2 is high. State = 0 Pin 3.2 is low
  */
+=======
+int16_t rx_data;
+void slaveSelect1(void);
+>>>>>>> refs/remotes/origin/master
 void slaveSelect2(int state);
 
 /*
@@ -40,10 +44,14 @@ void configure_SPI_MODULE_TEMP(void);
  * Sets up the SPI module for the humidity IC.
  */
 void configure_SPI_MODULE_HUMIDITY(void);
+<<<<<<< HEAD
 
 /*
  * Putchar - not a good name. Recieve the data.
  */
 int16_t spi_putchar(void);
+=======
+//extern void EUSCIB0_IRQHandler(void);
+>>>>>>> refs/remotes/origin/master
 
 #endif /* SPI_MODULE_H_ */

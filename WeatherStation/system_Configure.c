@@ -1,4 +1,3 @@
-
 #include "system_Configure.h"
 
 
@@ -35,7 +34,7 @@ void configure_serial_port(){
 	UCA0CTLW0 & ~UCMSB;					//lsb first
 	UCA0CTLW0 &	~UC7BIT;				// 8 bit data
 	UCA0CTLW0 |= UCMODE_0;				//UART mode
-	UCA0CTLW0 & ~UCSPB;					//one stop bit
+	//UCA0CTLW0 & ~UCSPB;					//one stop bit
 	UCA0CTLW0 |= UCSSEL_2;				//SMCLK
 	UCA0BR0 = 156; 						//set baud rate, to 1.5MHZ
 	UCA0BR1 = 0;
@@ -46,6 +45,7 @@ void configure_serial_port(){
 /*
 uart_putchar takes in an 8 bit integer and if the transmitter is ready, data is loaded onto the Tx buffer, to send across UART.
 */
+
 void uart_putchar(uint8_t tx_data){
 	while(!(UCA0IFG & UCTXIFG));//block until transmitter is ready
 	UCA0TXBUF = tx_data;//load data onto buffer
@@ -86,5 +86,3 @@ void configure_All(){
 	configure_serial_port();
 	configure_pins();
 }
-
-

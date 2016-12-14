@@ -16,9 +16,3 @@ SPI For Temp:
 Receiving Data
 	--ADC
 	---Write to buffer
-	
-	
-	http://sensing.honeywell.com/spi-comms-with-digital-humidity-temp-sensors-tn-009071-1-en-final-07jun12.pdf
-	http://sensing.honeywell.com/spi-comms-with-digital-humidity-temp-sensors-tn-009071-1-en-final-07jun12.pdf
-	page 5
-	http://www.ti.com/lit/ug/slau411e/slau411e.pdf

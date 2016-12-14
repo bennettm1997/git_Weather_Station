@@ -3,6 +3,7 @@
 
 
 //pin 6.0 state 1 for high 0 for low
+//Code inside here was test code to get the project working. It didnt work.
 void slaveSelect1(void){
 	sendLog("Changing to Slave Select 1",26);
 	P6DIR |= BIT0;

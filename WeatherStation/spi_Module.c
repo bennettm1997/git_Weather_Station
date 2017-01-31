@@ -7,7 +7,7 @@
 void slaveSelect1(void){
 	sendLog("Changing to Slave Select 1",26);
 	P6DIR |= BIT0;
-	//if(state == HIGH){
+	if(state == HIGH){
 		P6OUT &= ~BIT0;
 		rx_data = 0;
 		int i = 0;
@@ -26,10 +26,10 @@ void slaveSelect1(void){
 		while(!(UCB0IFG & UCRXIFG));//block until transmitter is ready
 		rx_data |= UCB0RXBUF;//load data onto buffer
 		P6OUT |= BIT0;
-	/*}
+	}
 	else if(state == LOW){// Sets pin Low
 		P6OUT &= ~BIT0;
-	}*/
+	
 }
 
 //pin 3.2 state 1 for high 0 for low
